@@ -9,5 +9,15 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
-URL: https://github.com/cbedwards-dfw/codeInspectr
+URL: https://github.com/cbedwards-dfw/codeInspectr, https://cbedwards-dfw.github.io/codeInspectr/
 BugReports: https://github.com/cbedwards-dfw/codeInspectr/issues
+Suggests: 
+    spelling
+Language: en-US
+Imports: 
+    cli,
+    codetools,
+    dplyr,
+    purrr,
+    rlang,
+    visNetwork

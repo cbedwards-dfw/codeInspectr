@@ -1,3 +1,3 @@
 # codeInspectr (development version)
 
-* Initial CRAN submission.
+* addition of basic functions. Key ones: `plot_function_dependencies()` and `find_reverse_dependencies()`
