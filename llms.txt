@@ -1,0 +1,43 @@
+# codeInspectr
+
+The goal of codeInspectr is to make it easy to understand teh
+relationships of functions within a package.
+
+## Installation
+
+You can install the development version of codeInspectr from
+[GitHub](https://github.com/) with:
+
+``` r
+# install.packages("pak")
+pak::pak("cbedwards-dfw/codeInspectr")
+```
+
+# Package index
+
+## All functions
+
+- [`build_package_network()`](https://cbedwards-dfw.github.io/codeInspectr/reference/build_package_network.md)
+  : Build edges of all function dependencies in package
+
+- [`build_recursive_edges()`](https://cbedwards-dfw.github.io/codeInspectr/reference/build_recursive_edges.md)
+  : Build dataframe of edges of recursive dependencies
+
+- [`find_function_dependencies()`](https://cbedwards-dfw.github.io/codeInspectr/reference/find_function_dependencies.md)
+  : List the functions in a package that depend on a function
+
+- [`find_recursive_dependencies()`](https://cbedwards-dfw.github.io/codeInspectr/reference/find_recursive_dependencies.md)
+  :
+
+  Identify all functions that are called by the specified function, and
+  all functions called by *them*, etc
+
+- [`find_reverse_dependencies()`](https://cbedwards-dfw.github.io/codeInspectr/reference/find_reverse_dependencies.md)
+  : List functions that call the specified functions
+
+- [`package_functions()`](https://cbedwards-dfw.github.io/codeInspectr/reference/package_functions.md)
+  : List the functions of a package
+
+- [`plot_function_dependencies()`](https://cbedwards-dfw.github.io/codeInspectr/reference/plot_function_dependencies.md)
+  : Plot dependency map of a function
+
