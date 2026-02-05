@@ -18,6 +18,9 @@ Imports:
     cli,
     codetools,
     dplyr,
+    gh,
+    glue,
     purrr,
     rlang,
-    visNetwork
+    visNetwork,
+    yaml
