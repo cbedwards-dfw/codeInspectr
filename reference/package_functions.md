@@ -24,8 +24,10 @@ character vector of function names
 package_functions("codeInspectr")
 #>  [1] "build_package_network"       "build_recursive_edges"      
 #>  [3] "find_function_dependencies"  "find_recursive_dependencies"
-#>  [5] "find_reverse_dependencies"   "package_functions"          
-#>  [7] "plot_function_dependencies"  "validate_character"         
-#>  [9] "validate_data_frame"         "validate_flag"              
-#> [11] "validate_integer"            "validate_numeric"           
+#>  [5] "find_reverse_dependencies"   "get_branch_activity"        
+#>  [7] "get_issues"                  "get_pull_requests"          
+#>  [9] "package_functions"           "plot_function_dependencies" 
+#> [11] "summarize_repository"        "validate_character"         
+#> [13] "validate_data_frame"         "validate_flag"              
+#> [15] "validate_integer"            "validate_numeric"           
 ```

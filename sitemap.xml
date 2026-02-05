@@ -11,8 +11,12 @@
 <url><loc>https://cbedwards-dfw.github.io/codeInspectr/reference/find_function_dependencies.html</loc></url>
 <url><loc>https://cbedwards-dfw.github.io/codeInspectr/reference/find_recursive_dependencies.html</loc></url>
 <url><loc>https://cbedwards-dfw.github.io/codeInspectr/reference/find_reverse_dependencies.html</loc></url>
+<url><loc>https://cbedwards-dfw.github.io/codeInspectr/reference/get_branch_activity.html</loc></url>
+<url><loc>https://cbedwards-dfw.github.io/codeInspectr/reference/get_issues.html</loc></url>
+<url><loc>https://cbedwards-dfw.github.io/codeInspectr/reference/get_pull_requests.html</loc></url>
 <url><loc>https://cbedwards-dfw.github.io/codeInspectr/reference/index.html</loc></url>
 <url><loc>https://cbedwards-dfw.github.io/codeInspectr/reference/package_functions.html</loc></url>
 <url><loc>https://cbedwards-dfw.github.io/codeInspectr/reference/plot_function_dependencies.html</loc></url>
+<url><loc>https://cbedwards-dfw.github.io/codeInspectr/reference/summarize_repository.html</loc></url>
 </urlset>
 

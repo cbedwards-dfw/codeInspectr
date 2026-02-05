@@ -39,5 +39,8 @@ build_package_network("codeInspectr")
 #> 8    find_reverse_dependencies       build_package_network
 #> 9    find_reverse_dependencies           package_functions
 #> 10  plot_function_dependencies       build_recursive_edges
-#> 11            validate_integer            validate_numeric
+#> 11        summarize_repository         get_branch_activity
+#> 12        summarize_repository                  get_issues
+#> 13        summarize_repository           get_pull_requests
+#> 14            validate_integer            validate_numeric
 ```
