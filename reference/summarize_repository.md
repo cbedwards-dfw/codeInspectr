@@ -5,7 +5,7 @@ Summarize information about a github R package
 ## Usage
 
 ``` r
-summarize_repository(repo_address)
+summarize_repository(repo_address, max_char = 70)
 ```
 
 ## Arguments
@@ -14,6 +14,10 @@ summarize_repository(repo_address)
 
   Github repository address for an R package, of the form
   "user/repository", as in `"FRAMverse/framrsquared"`
+
+- max_char:
+
+  Maximum number of characters to return in the "body" column.
 
 ## Value
 
@@ -111,60 +115,60 @@ summarize_repository("FRAMverse/framrsquared")
 #> 24                                                                               Stock filtering
 #> 25                                                             Add `describe_data` functionality
 #> 26                                                  Replicate Derek's mortality aggregation tool
-#>                                                         body       date
-#> 1      Use `testthat::skip_if_not()` to skip tests when t... 2026-01-21
-#> 2       Yi was experiencing issues with a preseason chino... 2026-01-15
-#> 3      Request from @sthurner11. The following is a scrip... 2026-01-08
-#> 4      Try custom filtering to commercial WA net -- end u... 2025-12-09
-#> 5      currently compare_database() assumes run_ids match... 2025-12-08
-#> 6      Right now the assignment of stock groups is using ... 2025-11-26
-#> 7      During preseason we copy the ocean options into ou... 2025-11-24
-#> 8      Includes fisheries like central OR Troll and Sport... 2025-11-21
-#> 9                                                            2025-11-20
-#> 10     For chinook, warn if making any changes to the fis... 2025-11-03
-#> 11     The fishery scalers table can be misleading to loo... 2025-10-30
-#> 12     Currently `modify_table()` cannot replace characte... 2025-10-28
-#> 13     Currently copy_fishery_scalers uses an "Update" ca... 2025-10-14
-#> 14                                          As appropriate.  2025-10-10
-#> 15     - Would be very useful to be able to zero out indi... 2025-09-08
-#> 16     The fishery_ids used in `filter_commercial_wa_nt()... 2025-04-28
-#> 17     Working with @sthurner11 on making the VS Input Te... 2025-04-21
-#> 18     Tool to help us identify other-target fisheries th... 2025-04-14
-#> 19     Currently we can layer filters to look at the inte... 2025-04-13
-#> 20     Failing to pick up changes in inputs where the fla... 2025-03-28
-#> 21     Many of the treaty fisheries have harvests that ar... 2025-03-13
-#> 22                   Add function to calculate ERs directly. 2025-02-11
-#> 23     I was trying to use the compare functions on a tra... 2025-01-07
-#> 24 @cbedwards-dfw \r\n\r\nIt'd be a good idea to have sto... 2024-12-27
-#> 25     From conversation with @Ty-WDFW on 12/13/24. Add `... 2024-12-13
-#> 26     Derek has an excel-based tool that uses some compl... 2024-12-11
-#>                                                    link
-#> 1  https://github.com/FRAMverse/framrsquared/issues/120
-#> 2  https://github.com/FRAMverse/framrsquared/issues/119
-#> 3  https://github.com/FRAMverse/framrsquared/issues/117
-#> 4  https://github.com/FRAMverse/framrsquared/issues/115
-#> 5  https://github.com/FRAMverse/framrsquared/issues/113
-#> 6  https://github.com/FRAMverse/framrsquared/issues/112
-#> 7  https://github.com/FRAMverse/framrsquared/issues/110
-#> 8  https://github.com/FRAMverse/framrsquared/issues/108
-#> 9  https://github.com/FRAMverse/framrsquared/issues/107
-#> 10 https://github.com/FRAMverse/framrsquared/issues/106
-#> 11 https://github.com/FRAMverse/framrsquared/issues/105
-#> 12 https://github.com/FRAMverse/framrsquared/issues/103
-#> 13 https://github.com/FRAMverse/framrsquared/issues/101
-#> 14 https://github.com/FRAMverse/framrsquared/issues/100
-#> 15  https://github.com/FRAMverse/framrsquared/issues/99
-#> 16  https://github.com/FRAMverse/framrsquared/issues/89
-#> 17  https://github.com/FRAMverse/framrsquared/issues/85
-#> 18  https://github.com/FRAMverse/framrsquared/issues/83
-#> 19  https://github.com/FRAMverse/framrsquared/issues/81
-#> 20  https://github.com/FRAMverse/framrsquared/issues/77
-#> 21  https://github.com/FRAMverse/framrsquared/issues/75
-#> 22  https://github.com/FRAMverse/framrsquared/issues/71
-#> 23  https://github.com/FRAMverse/framrsquared/issues/68
-#> 24  https://github.com/FRAMverse/framrsquared/issues/60
-#> 25  https://github.com/FRAMverse/framrsquared/issues/52
-#> 26  https://github.com/FRAMverse/framrsquared/issues/50
+#>                                                                             body
+#> 1      Use `testthat::skip_if_not()` to skip tests when the test databases ar...
+#> 2       Yi was experiencing issues with a preseason chinook database when run...
+#> 3      Request from @sthurner11. The following is a script used by coho model...
+#> 4      Try custom filtering to commercial WA net -- end up with a 2x2 grid, b...
+#> 5      currently compare_database() assumes run_ids match between the two dat...
+#> 6         Right now the assignment of stock groups is using a LUT for coho only.
+#> 7      During preseason we copy the ocean options into our NOF runs using 'me...
+#> 8      Includes fisheries like central OR Troll and Sport, So Calif Troll and...
+#> 9                                                                               
+#> 10     For chinook, warn if making any changes to the fisheries that are over...
+#> 11     The fishery scalers table can be misleading to look at -- we might hav...
+#> 12     Currently `modify_table()` cannot replace character strings (and likel...
+#> 13     Currently copy_fishery_scalers uses an "Update" call. This can give sc...
+#> 14                                                              As appropriate. 
+#> 15     - Would be very useful to be able to zero out individual fishery (or f...
+#> 16               The fishery_ids used in `filter_commercial_wa_nt()` are wrong. 
+#> 17     Working with @sthurner11 on making the VS Input Template from the fina...
+#> 18     Tool to help us identify other-target fisheries that are impacting a s...
+#> 19     Currently we can layer filters to look at the intersection of filters ...
+#> 20     Failing to pick up changes in inputs where the flag has changed  e.g. ...
+#> 21     Many of the treaty fisheries have harvests that are based on terminal ...
+#> 22                                       Add function to calculate ERs directly.
+#> 23     I was trying to use the compare functions on a transfer file with two ...
+#> 24 @cbedwards-dfw \r\n\r\nIt'd be a good idea to have stock filtering as well...
+#> 25     From conversation with @Ty-WDFW on 12/13/24. Add `describe_data()` fun...
+#> 26     Derek has an excel-based tool that uses some complex logic and pivot t...
+#>          date                                                 link
+#> 1  2026-01-21 https://github.com/FRAMverse/framrsquared/issues/120
+#> 2  2026-01-15 https://github.com/FRAMverse/framrsquared/issues/119
+#> 3  2026-01-08 https://github.com/FRAMverse/framrsquared/issues/117
+#> 4  2025-12-09 https://github.com/FRAMverse/framrsquared/issues/115
+#> 5  2025-12-08 https://github.com/FRAMverse/framrsquared/issues/113
+#> 6  2025-11-26 https://github.com/FRAMverse/framrsquared/issues/112
+#> 7  2025-11-24 https://github.com/FRAMverse/framrsquared/issues/110
+#> 8  2025-11-21 https://github.com/FRAMverse/framrsquared/issues/108
+#> 9  2025-11-20 https://github.com/FRAMverse/framrsquared/issues/107
+#> 10 2025-11-03 https://github.com/FRAMverse/framrsquared/issues/106
+#> 11 2025-10-30 https://github.com/FRAMverse/framrsquared/issues/105
+#> 12 2025-10-28 https://github.com/FRAMverse/framrsquared/issues/103
+#> 13 2025-10-14 https://github.com/FRAMverse/framrsquared/issues/101
+#> 14 2025-10-10 https://github.com/FRAMverse/framrsquared/issues/100
+#> 15 2025-09-08  https://github.com/FRAMverse/framrsquared/issues/99
+#> 16 2025-04-28  https://github.com/FRAMverse/framrsquared/issues/89
+#> 17 2025-04-21  https://github.com/FRAMverse/framrsquared/issues/85
+#> 18 2025-04-14  https://github.com/FRAMverse/framrsquared/issues/83
+#> 19 2025-04-13  https://github.com/FRAMverse/framrsquared/issues/81
+#> 20 2025-03-28  https://github.com/FRAMverse/framrsquared/issues/77
+#> 21 2025-03-13  https://github.com/FRAMverse/framrsquared/issues/75
+#> 22 2025-02-11  https://github.com/FRAMverse/framrsquared/issues/71
+#> 23 2025-01-07  https://github.com/FRAMverse/framrsquared/issues/68
+#> 24 2024-12-27  https://github.com/FRAMverse/framrsquared/issues/60
+#> 25 2024-12-13  https://github.com/FRAMverse/framrsquared/issues/52
+#> 26 2024-12-11  https://github.com/FRAMverse/framrsquared/issues/50
 #> 
 #> $pull_requests
 #>                                                                    title
@@ -174,20 +178,20 @@ summarize_repository("FRAMverse/framrsquared")
 #> 4 added two functions for comparing preseason and postseason mortalitie…
 #> 5                                    refactored to support transfer runs
 #> 6                                                        Add/sensitivity
-#>                                                        body       date
-#> 1     Added the following functions to help identify pro... 2025-11-24
-#> 2     Addressing #103. modify_table() writes a sql query... 2025-10-29
-#> 3     Addressing #99. Adds `zero_fishery()` which 0s out... 2025-10-23
-#> 4     `create_mort_comparison()` takes a focal year and ... 2025-01-22
-#> 5 Addressing #68. \r\n\r\nChanged `compare_*` functions ... 2025-01-07
-#> 6     Linear scaling of potential inputs for sensitivity... 2024-11-04
-#>                                                 link
-#> 1 https://github.com/FRAMverse/framrsquared/pull/111
-#> 2 https://github.com/FRAMverse/framrsquared/pull/104
-#> 3 https://github.com/FRAMverse/framrsquared/pull/102
-#> 4  https://github.com/FRAMverse/framrsquared/pull/70
-#> 5  https://github.com/FRAMverse/framrsquared/pull/69
-#> 6  https://github.com/FRAMverse/framrsquared/pull/43
+#>                                                                            body
+#> 1     Added the following functions to help identify problems with non-reten...
+#> 2     Addressing #103. modify_table() writes a sql query based on the condit...
+#> 3     Addressing #99. Adds `zero_fishery()` which 0s out the quota, scaler, ...
+#> 4     `create_mort_comparison()` takes a focal year and focal stock and a pr...
+#> 5 Addressing #68. \r\n\r\nChanged `compare_*` functions to use framrosetta t...
+#> 6             Linear scaling of potential inputs for sensitivity analyses. #38 
+#>         date                                               link
+#> 1 2025-11-24 https://github.com/FRAMverse/framrsquared/pull/111
+#> 2 2025-10-29 https://github.com/FRAMverse/framrsquared/pull/104
+#> 3 2025-10-23 https://github.com/FRAMverse/framrsquared/pull/102
+#> 4 2025-01-22  https://github.com/FRAMverse/framrsquared/pull/70
+#> 5 2025-01-07  https://github.com/FRAMverse/framrsquared/pull/69
+#> 6 2024-11-04  https://github.com/FRAMverse/framrsquared/pull/43
 #> 
 #> $github_dependencies
 #> [1] "FRAMverse/framrosetta"
@@ -215,14 +219,14 @@ summarize_repository("cbedwards-dfw/xldiff")
 #> 1 Consider better handling of text changes
 #> 2                 Improve input validation
 #> 3                      Add more unit tests
-#>                                                    body       date
-#> 1 Currently xldiff does a poor job of handling sheet... 2026-02-02
-#> 2 Use new `validate_*` for cell address / addresses,... 2026-01-31
-#> 3 At the very least, `blank_line_handling` functions... 2026-01-31
-#>                                                link
-#> 1 https://github.com/cbedwards-dfw/xldiff/issues/16
-#> 2 https://github.com/cbedwards-dfw/xldiff/issues/15
-#> 3 https://github.com/cbedwards-dfw/xldiff/issues/14
+#>                                                                        body
+#> 1 Currently xldiff does a poor job of handling sheets with many cells of...
+#> 2         Use new `validate_*` for cell address / addresses, excel sheets. 
+#> 3 At the very least, `blank_line_handling` functions should be easy to c...
+#>         date                                              link
+#> 1 2026-02-02 https://github.com/cbedwards-dfw/xldiff/issues/16
+#> 2 2026-01-31 https://github.com/cbedwards-dfw/xldiff/issues/15
+#> 3 2026-01-31 https://github.com/cbedwards-dfw/xldiff/issues/14
 #> 
 #> $pull_requests
 #> NULL

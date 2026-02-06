@@ -39,7 +39,7 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">summarize_repository</span><span class="op">(</span><span class="va">repo_address</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">summarize_repository</span><span class="op">(</span><span class="va">repo_address</span>, max_char <span class="op">=</span> <span class="fl">70</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -49,6 +49,10 @@
 <dl><dt id="arg-repo-address">repo_address<a class="anchor" aria-label="anchor" href="#arg-repo-address"></a></dt>
 <dd><p>Github repository address for an R package, of the form "user/repository",
 as in <code>"FRAMverse/framrsquared"</code></p></dd>
+
+
+<dt id="arg-max-char">max_char<a class="anchor" aria-label="anchor" href="#arg-max-char"></a></dt>
+<dd><p>Maximum number of characters to return in the "body" column.</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -145,60 +149,60 @@ as in <code>"FRAMverse/framrsquared"</code></p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 24                                                                               Stock filtering</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 25                                                             Add `describe_data` functionality</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 26                                                  Replicate Derek's mortality aggregation tool</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                         body       date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1      Use `testthat::skip_if_not()` to skip tests when t... 2026-01-21</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2       Yi was experiencing issues with a preseason chino... 2026-01-15</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3      Request from @sthurner11. The following is a scrip... 2026-01-08</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4      Try custom filtering to commercial WA net -- end u... 2025-12-09</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5      currently compare_database() assumes run_ids match... 2025-12-08</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6      Right now the assignment of stock groups is using ... 2025-11-26</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7      During preseason we copy the ocean options into ou... 2025-11-24</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8      Includes fisheries like central OR Troll and Sport... 2025-11-21</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9                                                            2025-11-20</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10     For chinook, warn if making any changes to the fis... 2025-11-03</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11     The fishery scalers table can be misleading to loo... 2025-10-30</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12     Currently `modify_table()` cannot replace characte... 2025-10-28</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13     Currently copy_fishery_scalers uses an "Update" ca... 2025-10-14</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14                                          As appropriate.  2025-10-10</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15     - Would be very useful to be able to zero out indi... 2025-09-08</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16     The fishery_ids used in `filter_commercial_wa_nt()... 2025-04-28</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17     Working with @sthurner11 on making the VS Input Te... 2025-04-21</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18     Tool to help us identify other-target fisheries th... 2025-04-14</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19     Currently we can layer filters to look at the inte... 2025-04-13</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20     Failing to pick up changes in inputs where the fla... 2025-03-28</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21     Many of the treaty fisheries have harvests that ar... 2025-03-13</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22                   Add function to calculate ERs directly. 2025-02-11</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23     I was trying to use the compare functions on a tra... 2025-01-07</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24 @cbedwards-dfw \r\n\r\nIt'd be a good idea to have sto... 2024-12-27</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25     From conversation with @Ty-WDFW on 12/13/24. Add `... 2024-12-13</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26     Derek has an excel-based tool that uses some compl... 2024-12-11</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                    link</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  https://github.com/FRAMverse/framrsquared/issues/120</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  https://github.com/FRAMverse/framrsquared/issues/119</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  https://github.com/FRAMverse/framrsquared/issues/117</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4  https://github.com/FRAMverse/framrsquared/issues/115</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5  https://github.com/FRAMverse/framrsquared/issues/113</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6  https://github.com/FRAMverse/framrsquared/issues/112</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7  https://github.com/FRAMverse/framrsquared/issues/110</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8  https://github.com/FRAMverse/framrsquared/issues/108</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9  https://github.com/FRAMverse/framrsquared/issues/107</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10 https://github.com/FRAMverse/framrsquared/issues/106</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11 https://github.com/FRAMverse/framrsquared/issues/105</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12 https://github.com/FRAMverse/framrsquared/issues/103</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13 https://github.com/FRAMverse/framrsquared/issues/101</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14 https://github.com/FRAMverse/framrsquared/issues/100</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15  https://github.com/FRAMverse/framrsquared/issues/99</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16  https://github.com/FRAMverse/framrsquared/issues/89</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17  https://github.com/FRAMverse/framrsquared/issues/85</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18  https://github.com/FRAMverse/framrsquared/issues/83</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19  https://github.com/FRAMverse/framrsquared/issues/81</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20  https://github.com/FRAMverse/framrsquared/issues/77</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21  https://github.com/FRAMverse/framrsquared/issues/75</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22  https://github.com/FRAMverse/framrsquared/issues/71</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23  https://github.com/FRAMverse/framrsquared/issues/68</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24  https://github.com/FRAMverse/framrsquared/issues/60</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25  https://github.com/FRAMverse/framrsquared/issues/52</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26  https://github.com/FRAMverse/framrsquared/issues/50</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                             body</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1      Use `testthat::skip_if_not()` to skip tests when the test databases ar...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2       Yi was experiencing issues with a preseason chinook database when run...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3      Request from @sthurner11. The following is a script used by coho model...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4      Try custom filtering to commercial WA net -- end up with a 2x2 grid, b...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5      currently compare_database() assumes run_ids match between the two dat...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6         Right now the assignment of stock groups is using a LUT for coho only.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7      During preseason we copy the ocean options into our NOF runs using 'me...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8      Includes fisheries like central OR Troll and Sport, So Calif Troll and...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9                                                                               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10     For chinook, warn if making any changes to the fisheries that are over...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11     The fishery scalers table can be misleading to look at -- we might hav...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12     Currently `modify_table()` cannot replace character strings (and likel...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13     Currently copy_fishery_scalers uses an "Update" call. This can give sc...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14                                                              As appropriate. </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15     - Would be very useful to be able to zero out individual fishery (or f...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16               The fishery_ids used in `filter_commercial_wa_nt()` are wrong. </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17     Working with @sthurner11 on making the VS Input Template from the fina...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18     Tool to help us identify other-target fisheries that are impacting a s...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19     Currently we can layer filters to look at the intersection of filters ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20     Failing to pick up changes in inputs where the flag has changed  e.g. ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21     Many of the treaty fisheries have harvests that are based on terminal ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22                                       Add function to calculate ERs directly.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23     I was trying to use the compare functions on a transfer file with two ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24 @cbedwards-dfw \r\n\r\nIt'd be a good idea to have stock filtering as well...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25     From conversation with @Ty-WDFW on 12/13/24. Add `describe_data()` fun...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26     Derek has an excel-based tool that uses some complex logic and pivot t...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          date                                                 link</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  2026-01-21 https://github.com/FRAMverse/framrsquared/issues/120</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  2026-01-15 https://github.com/FRAMverse/framrsquared/issues/119</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  2026-01-08 https://github.com/FRAMverse/framrsquared/issues/117</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  2025-12-09 https://github.com/FRAMverse/framrsquared/issues/115</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5  2025-12-08 https://github.com/FRAMverse/framrsquared/issues/113</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6  2025-11-26 https://github.com/FRAMverse/framrsquared/issues/112</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7  2025-11-24 https://github.com/FRAMverse/framrsquared/issues/110</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8  2025-11-21 https://github.com/FRAMverse/framrsquared/issues/108</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9  2025-11-20 https://github.com/FRAMverse/framrsquared/issues/107</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10 2025-11-03 https://github.com/FRAMverse/framrsquared/issues/106</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11 2025-10-30 https://github.com/FRAMverse/framrsquared/issues/105</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12 2025-10-28 https://github.com/FRAMverse/framrsquared/issues/103</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13 2025-10-14 https://github.com/FRAMverse/framrsquared/issues/101</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14 2025-10-10 https://github.com/FRAMverse/framrsquared/issues/100</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15 2025-09-08  https://github.com/FRAMverse/framrsquared/issues/99</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16 2025-04-28  https://github.com/FRAMverse/framrsquared/issues/89</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17 2025-04-21  https://github.com/FRAMverse/framrsquared/issues/85</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18 2025-04-14  https://github.com/FRAMverse/framrsquared/issues/83</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19 2025-04-13  https://github.com/FRAMverse/framrsquared/issues/81</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20 2025-03-28  https://github.com/FRAMverse/framrsquared/issues/77</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21 2025-03-13  https://github.com/FRAMverse/framrsquared/issues/75</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22 2025-02-11  https://github.com/FRAMverse/framrsquared/issues/71</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23 2025-01-07  https://github.com/FRAMverse/framrsquared/issues/68</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24 2024-12-27  https://github.com/FRAMverse/framrsquared/issues/60</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25 2024-12-13  https://github.com/FRAMverse/framrsquared/issues/52</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26 2024-12-11  https://github.com/FRAMverse/framrsquared/issues/50</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $pull_requests</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                                                    title</span>
@@ -208,20 +212,20 @@ as in <code>"FRAMverse/framrsquared"</code></p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 4 added two functions for comparing preseason and postseason mortalitie…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 5                                    refactored to support transfer runs</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 6                                                        Add/sensitivity</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                        body       date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1     Added the following functions to help identify pro... 2025-11-24</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2     Addressing #103. modify_table() writes a sql query... 2025-10-29</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3     Addressing #99. Adds `zero_fishery()` which 0s out... 2025-10-23</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4     `create_mort_comparison()` takes a focal year and ... 2025-01-22</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5 Addressing #68. \r\n\r\nChanged `compare_*` functions ... 2025-01-07</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6     Linear scaling of potential inputs for sensitivity... 2024-11-04</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                 link</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 https://github.com/FRAMverse/framrsquared/pull/111</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 https://github.com/FRAMverse/framrsquared/pull/104</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 https://github.com/FRAMverse/framrsquared/pull/102</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4  https://github.com/FRAMverse/framrsquared/pull/70</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5  https://github.com/FRAMverse/framrsquared/pull/69</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6  https://github.com/FRAMverse/framrsquared/pull/43</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                            body</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1     Added the following functions to help identify problems with non-reten...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2     Addressing #103. modify_table() writes a sql query based on the condit...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3     Addressing #99. Adds `zero_fishery()` which 0s out the quota, scaler, ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4     `create_mort_comparison()` takes a focal year and focal stock and a pr...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 Addressing #68. \r\n\r\nChanged `compare_*` functions to use framrosetta t...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6             Linear scaling of potential inputs for sensitivity analyses. #38 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         date                                               link</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 2025-11-24 https://github.com/FRAMverse/framrsquared/pull/111</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 2025-10-29 https://github.com/FRAMverse/framrsquared/pull/104</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 2025-10-23 https://github.com/FRAMverse/framrsquared/pull/102</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 2025-01-22  https://github.com/FRAMverse/framrsquared/pull/70</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 2025-01-07  https://github.com/FRAMverse/framrsquared/pull/69</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6 2024-11-04  https://github.com/FRAMverse/framrsquared/pull/43</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $github_dependencies</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "FRAMverse/framrosetta"</span>
@@ -249,14 +253,14 @@ as in <code>"FRAMverse/framrsquared"</code></p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1 Consider better handling of text changes</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2                 Improve input validation</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 3                      Add more unit tests</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                    body       date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 Currently xldiff does a poor job of handling sheet... 2026-02-02</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 Use new `validate_*` for cell address / addresses,... 2026-01-31</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 At the very least, `blank_line_handling` functions... 2026-01-31</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                link</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 https://github.com/cbedwards-dfw/xldiff/issues/16</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 https://github.com/cbedwards-dfw/xldiff/issues/15</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 https://github.com/cbedwards-dfw/xldiff/issues/14</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                        body</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 Currently xldiff does a poor job of handling sheets with many cells of...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2         Use new `validate_*` for cell address / addresses, excel sheets. </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 At the very least, `blank_line_handling` functions should be easy to c...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         date                                              link</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 2026-02-02 https://github.com/cbedwards-dfw/xldiff/issues/16</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 2026-01-31 https://github.com/cbedwards-dfw/xldiff/issues/15</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 2026-01-31 https://github.com/cbedwards-dfw/xldiff/issues/14</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $pull_requests</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> NULL</span>
