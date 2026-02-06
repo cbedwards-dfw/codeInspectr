@@ -1,0 +1,149 @@
+---
+title: "getting_started"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{getting_started}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+```{r}
+library(codeInspectr)
+library(framrsquared)
+```
+
+
+# Summarizing the status of a package
+
+These functions provide information about github repositories. They are intended for 
+use in looking at R packages, but all of them except `summarize_repository()` work on
+non-package repositories as well.
+
+`summarize_repository()` is the primary tool here. It provides information on
+
+- the active branches (aside from the `gh-pages` branch, which is used for pkgdown documentation sites) 
+and when they were last updated, with links
+- the open Issues, when they were posted, the start of the initial issue description, with links
+- the open Pull Requests, with equivalent information
+- any dependencies on non-cran packages
+
+These packages do not need to be installed. Instead, provide the identifier parts of the github repository url: 
+the owner and the repository name.
+
+```{r}
+summarize_repository("FRAMverse/framrsquared")
+```
+
+```{r}
+summarize_repository("tidyverse/dplyr")
+```
+
+
+`summarize_repository()` uses `get_branch_activity()`, `get_pull_requests()` and `get_issues()` to populate several of its tables. Those
+functions can be used on their own, and none of them rely on the repository being an R package. Here are the current issues listed for the "fram_doc" repository, which is used to generate our documentation website.
+
+```{r}
+get_issues("FRAMverse/fram_doc")
+```
+
+# Understanding functions within a package
+
+`{codeInspectr}` has tools for understanding the relationships between functions in a package. Here we will explore the codeInspectr package itself with those tools.
+
+First, we can list the functions in a package
+
+```{r}
+package_functions("codeInspectr")
+```
+
+## Plotting dependency network
+
+We can look at the network of function dependencies for a specific function with `plot_function_dependencies()` Here we look at 
+the dependency network for `summarize_repository()` above. *This only shows the relationship of functions defined by the package*, not dependencies on functions from other packages
+
+```{r}
+plot_function_dependencies("codeInspectr",
+                           fun = "summarize_repository")
+```
+
+This kind of plot can help understand how different parts of a package interact. There is also the option to ignore functions that match one or more regex patterns. This can be helpful for removing validation functions that would otherwise clog up a network diagram. Let's take a look at one of the functions from the `framrsquared` package, which has much more complicated dependencies:
+
+```{r}
+plot_function_dependencies("framrsquared",
+                           fun = "fetch_table")
+```
+
+Many of the functions listed here are validation functions (starting with "validate_" that check that the provided arguments are the right form. Typically we don't care about these functions if we want to understand how a function works, so it would be nice to exclude them. We can do this with the `pattern_ignore` argument:
+
+```{r}
+plot_function_dependencies("framrsquared",
+                           fun = "fetch_table",
+                           pattern_ignore = "validate_")
+```
+
+This makes it much easier to focus on the meaningful functions. 
+
+Sometimes we may want to include the dependency on a key function, but not clog our diagram up with the all the functions THAT depends on. Let's imagine we're trying to look at how `stock_fate()` works, and we already feel comfortable with the `fetch_table()` and `fetch_table_()` functions. Or perhaps we're presenting this information, and we feel like the audience either understands or doesn't need to worry about how `fetch_table()` works. Our default diagram, even excluding the validate functions, is unnecessarily complicated:
+
+```{r}
+plot_function_dependencies("framrsquared",
+                           fun = "stock_fate",
+                           pattern_ignore = "validate_")
+```
+
+We can use the `pattern_dont_recurse` to identify function(s) that we want to show up on the plot, but for which we don't want to track *their* dependencies:
+
+```{r}
+plot_function_dependencies("framrsquared",
+                           fun = "stock_fate",
+                           pattern_ignore = "validate_",
+                           pattern_dont_recurse = "fetch_table")
+```
+
+## Dependency lists
+
+We may not want to deal with a plot, and instead just list dependencies. This can be helpful
+when updating code. 
+
+`find_function_dependencies()` finds all the functions that the listed function depends on.
+
+Here are the functions in `codeInspectr` that `summarize_repository()` function uses:
+
+```{r}
+find_function_dependencies("codeInspectr", fun = "summarize_repository")
+```
+
+Optionally, we can list dependencies on all functions, including those outside of the focal package. `include = "no operators"` will (usually) exclude R operators from the list of functions used:
+
+```{r}
+find_function_dependencies("codeInspectr", fun = "summarize_repository", include = "no operators")
+```
+
+while `include = "all"` will also list operators:
+
+```{r}
+find_function_dependencies("codeInspectr", fun = "summarize_repository", include = "all")
+```
+
+We can also work the other direction: what functions in the package depend on a focal function? For this we use `find_reverse_dependencies()`
+
+```{r}
+find_reverse_dependencies("codeInspectr", "summarize_repository")
+```
+
+No functions depend on `summarize_repository()`.
+
+```{r}
+find_reverse_dependencies("codeInspectr", "get_issues")
+```
+
+Only `summarize_repository()` depends on `get_issues()`. 
+
+This function can be helpful if we're considering changing the behavior of a function in a package, and want to 
+see what else that might affect. For example, what if we wanted to tweak the output format of `fetch_table_()` in the `{framrsquared}` package?
+
+```{r}
+find_reverse_dependencies("framrsquared", "fetch_table_")
+```
+
+We would need to check that all of those functions still worked.
+
