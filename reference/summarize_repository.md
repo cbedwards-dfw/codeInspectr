@@ -5,7 +5,7 @@ Summarize information about a github R package
 ## Usage
 
 ``` r
-summarize_repository(repo_address, max_char = 70)
+summarize_repository(repo_address, max_char = 70, is_package = TRUE)
 ```
 
 ## Arguments
@@ -18,6 +18,11 @@ summarize_repository(repo_address, max_char = 70)
 - max_char:
 
   Maximum number of characters to return in the "body" column.
+
+- is_package:
+
+  Is this repository an R package? If not, don't try to pull information
+  from the DESCRIPTION file. Logical, defaults to TRUE.
 
 ## Value
 

@@ -42,5 +42,6 @@ build_package_network("codeInspectr")
 #> 11        summarize_repository         get_branch_activity
 #> 12        summarize_repository                  get_issues
 #> 13        summarize_repository           get_pull_requests
-#> 14            validate_integer            validate_numeric
+#> 14        summarize_repository         validate_repository
+#> 15            validate_integer            validate_numeric
 ```
