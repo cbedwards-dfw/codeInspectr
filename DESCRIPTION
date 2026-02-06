@@ -28,3 +28,5 @@ Imports:
     visNetwork,
     yaml
 VignetteBuilder: knitr
+Remotes: 
+  FRAMverse/framrsquared
