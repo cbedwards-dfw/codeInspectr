@@ -63,3 +63,13 @@ validate_integer <- function(x, n = NULL, ..., arg = rlang::caller_arg(x), call 
   }
 }
 
+validate_repository <- function(x, ..., arg = rlang::caller_arg(x), call = rlang::caller_env()){
+  suppressWarnings(try(
+    test_val <- system(paste0("git ls-remote https://github.com/", x),
+                       intern = TRUE, ignore.stderr = TRUE
+    ))
+  )
+  if(!is.null(attr(test_val, "status"))){
+    cli::cli_abort("{.arg {arg}} must be a valid public repository address. For example, 'FRAMverse/framrsquared' or 'tidyverse/dplyr'. {.arg {x}} is not a valid repository; {.href https://github.com/{x} } does not exist")
+  }
+}

@@ -99,8 +99,8 @@ get_pull_requests <- function(repo_address, max_char = 97) {
         }) |>
         do.call(rbind, args = _) |>
         dplyr::mutate(body = dplyr::if_else(nchar(.data$body) > max_char,
-                                     glue::glue("{substr(.data$body, start = 1, stop = max_char)}..."),
-                                     .data$body)) |>
+                                            glue::glue("{substr(.data$body, start = 1, stop = max_char)}..."),
+                                            .data$body)) |>
         dplyr::mutate(date = as.Date(.data$creation_ts),
                       .before = "link") |>
         dplyr::select(-.data$creation_ts)
@@ -201,8 +201,8 @@ get_issues <- function(repo_address, max_char = 97) {
         }) |>
         do.call(rbind, args = _) |>
         dplyr::mutate(body = dplyr::if_else(nchar(.data$body) > max_char,
-                                     glue::glue("{substr(.data$body, start = 1, stop = max_char)}..."),
-                                     .data$body)) |>
+                                            glue::glue("{substr(.data$body, start = 1, stop = max_char)}..."),
+                                            .data$body)) |>
         dplyr::mutate(date = as.Date(.data$creation_ts),
                       .before = "link") |>
         dplyr::select(-.data$creation_ts)
@@ -255,12 +255,35 @@ get_issues <- function(repo_address, max_char = 97) {
 }
 
 
+get_noncran_dependencies <- function(repo_address){
+  description_url = glue::glue("https://raw.githubusercontent.com/{repo_address}/main/DESCRIPTION")
+  description_raw <- readLines(description_url)
+  description_raw <- grep("^Description:",
+                          x = description_raw,
+                          value = TRUE, invert = TRUE)
+  desc_yaml <- yaml::read_yaml(text = description_raw)
+  remotes <- desc_yaml$Remotes
+  if(!is.null(remotes)){
+    remotes <- strsplit(remotes, split = ", ")[[1]]
+    imports <- desc_yaml$Imports
+    imports <- strsplit(imports, split = ", ")[[1]]
+    imports_clean <- gsub(" .*", "", imports)
+
+    inds_used  <-  basename(remotes) %in% imports_clean
+    res <- remotes[inds_used]
+  } else {
+    res <- NULL
+  }
+  return(res)
+}
+
 #' Summarize information about a github R package
 #'
 #'
 #'
 #' @param repo_address Github repository address for an R package, of the form "user/repository",
 #' as in `"FRAMverse/framrsquared"`
+#' @param is_package Is this repository an R package? If not, don't try to pull information from the DESCRIPTION file. Logical, defaults to TRUE.
 #' @inheritParams get_pull_requests
 #'
 #' @return List summarizing github repository information.
@@ -271,8 +294,8 @@ get_issues <- function(repo_address, max_char = 97) {
 #' @examples
 #' summarize_repository("FRAMverse/framrsquared")
 #' summarize_repository("cbedwards-dfw/xldiff")
-summarize_repository <- function(repo_address, max_char = 70){
-
+summarize_repository <- function(repo_address, max_char = 70, is_package = TRUE){
+  validate_repository(repo_address)
   ## updates
   branch_activity <- get_branch_activity(repo_address = repo_address)
 
