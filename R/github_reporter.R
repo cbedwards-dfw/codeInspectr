@@ -261,6 +261,7 @@ get_issues <- function(repo_address, max_char = 97) {
 #'
 #' @param repo_address Github repository address for an R package, of the form "user/repository",
 #' as in `"FRAMverse/framrsquared"`
+#' @inheritParams get_pull_requests
 #'
 #' @return List summarizing github repository information.
 #' @export
@@ -270,16 +271,16 @@ get_issues <- function(repo_address, max_char = 97) {
 #' @examples
 #' summarize_repository("FRAMverse/framrsquared")
 #' summarize_repository("cbedwards-dfw/xldiff")
-summarize_repository <- function(repo_address){
+summarize_repository <- function(repo_address, max_char = 70){
 
   ## updates
   branch_activity <- get_branch_activity(repo_address = repo_address)
 
   ## issues
-  issues <- get_issues(repo_address = repo_address, max_char = 50)
+  issues <- get_issues(repo_address = repo_address, max_char = max_char)
 
   ## PRs
-  pull_requests = get_pull_requests(repo_address = repo_address, max_char = 50)
+  pull_requests = get_pull_requests(repo_address = repo_address, max_char = max_char)
 
   ## repo description
   repo_description <- gh::gh(glue::glue("GET /repos/{repo_address}"))$description

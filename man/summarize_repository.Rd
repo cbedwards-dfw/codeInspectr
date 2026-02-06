@@ -4,11 +4,13 @@
 \alias{summarize_repository}
 \title{Summarize information about a github R package}
 \usage{
-summarize_repository(repo_address)
+summarize_repository(repo_address, max_char = 70)
 }
 \arguments{
 \item{repo_address}{Github repository address for an R package, of the form "user/repository",
 as in \code{"FRAMverse/framrsquared"}}
+
+\item{max_char}{Maximum number of characters to return in the "body" column.}
 }
 \value{
 List summarizing github repository information.
