@@ -46,7 +46,6 @@ parse_name <- function(full_name = NULL,
 #'
 #' @examples
 #' temp <- get_raw_issues("cbedwards-dfw/codeInspectr")
-#' head(temp[[1]])
 get_raw_issues <- function(full_name = NULL,
                            entity_name = NULL,
                            repo_name = NULL){
@@ -70,7 +69,6 @@ get_raw_issues <- function(full_name = NULL,
 #'
 #' @examples
 #' # temp <- get_raw_pulls("cbedwards-dfw/codeInspectr")
-#' #  head(temp[[1]])
 get_raw_pulls <- function(full_name = NULL,
                           entity_name = NULL,
                           repo_name = NULL){
