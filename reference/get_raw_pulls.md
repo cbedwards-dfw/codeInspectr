@@ -39,5 +39,4 @@ repository.
 
 ``` r
 # temp <- get_raw_pulls("cbedwards-dfw/codeInspectr")
-#  head(temp[[1]])
 ```

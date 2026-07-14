@@ -38,6 +38,4 @@ A list of class `gh_response` containing all issues from a repository.
 
 ``` r
 temp <- get_raw_issues("cbedwards-dfw/codeInspectr")
-head(temp[[1]])
-#> Error in temp[[1]]: subscript out of bounds
 ```
