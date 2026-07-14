@@ -38,7 +38,6 @@ parse_name <- function(full_name = NULL,
 #' Obtain Github Issues from a repository
 #'
 #' Returns github issues as a list. Github issues themselves are structured as jsons.
-#' If there are no issues (not even closed ones) or issues are not enabled, will error.
 #'
 #' @inheritParams parse_name
 #'
@@ -63,7 +62,6 @@ get_raw_issues <- function(full_name = NULL,
 #' Obtain Github pull requests from a repository
 #'
 #' Returns github issues as a list. Github issues themselves are structured as jsons.
-#' If there are no issues (not even closed ones) or issues are not enabled, will error.
 #'
 #' @inheritParams parse_name
 #'

@@ -18,7 +18,6 @@ A list of class \code{gh_response} containing all pull requests from a repositor
 }
 \description{
 Returns github issues as a list. Github issues themselves are structured as jsons.
-If there are no issues (not even closed ones) or issues are not enabled, will error.
 }
 \examples{
 # temp <- get_raw_pulls("cbedwards-dfw/codeInspectr")
