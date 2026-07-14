@@ -35,7 +35,10 @@ validate_numeric <- function(x, n = NULL, min = NULL, max = NULL, ..., arg = rla
   }
 }
 
-validate_character <- function(x, n = NULL, ..., arg = rlang::caller_arg(x), call = rlang::caller_env()) {
+validate_character <- function(x, n = NULL, allow_null = FALSE, ..., arg = rlang::caller_arg(x), call = rlang::caller_env()) {
+
+  if(allow_null && is.null(x)){ return(invisible(NULL)) }
+
   if (!is.character(x)) {
     cli::cli_abort("{.arg {arg}} must be a character, not {.obj_type_friendly {x}}.", ..., call = call)
   }
@@ -44,6 +47,25 @@ validate_character <- function(x, n = NULL, ..., arg = rlang::caller_arg(x), cal
       cli::cli_abort("{.arg {arg}} must be a character of length {.val {n}}, not {.val {length(x)}}.", ..., call = call)
     }
   }
+}
+
+validate_filepath <- function(x, n = NULL, allow_null = FALSE, ..., arg = rlang::caller_arg(x), call = rlang::caller_env()) {
+
+  validate_character(x, n = n, allow_null = allow_null, ..., arg = arg, call = call)
+
+  if(!all(file.exists(x))){
+    files_missing <- x[!file.exists(x)]
+    if(length(files_missing) == 1){
+      cli::cli_abort("{.arg {arg}} must exist! {.path {files_missing}} is not a valid filepath.", ..., call = call)
+    } else {
+      bullets <- stats::setNames(paste0("{.path ", files_missing, "}"), rep("*", length(files_missing)))
+      cli::cli_abort(
+        c("All {.arg {arg}} must exist! The following are not valid filepaths:", bullets),
+        ..., call = call
+      )
+    }
+  }
+
 }
 
 validate_flag <- function(x, ..., arg = rlang::caller_arg(x), call = rlang::caller_env()) {

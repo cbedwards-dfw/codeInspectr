@@ -141,7 +141,7 @@ get_pull_requests <- function(repo_address, max_char = 97) {
     resp <- gh::gh_gql(q_next)
     results_cur <- extract(resp$data$repository$pullRequests$nodes)
     results <- rbind(results, results_cur)
-    page <- resp$repository$pullRequests$pageInfo
+    page <- resp$data$repository$pullRequests$pageInfo
   }
 
   return(results)
@@ -248,7 +248,7 @@ get_issues <- function(repo_address, max_char = 97) {
     resp <- gh::gh_gql(q_next)
     results_cur <- extract(resp$data$repository$issues$nodes)
     results <- rbind(results, results_cur)
-    page <- resp$repository$issues$pageInfo
+    page <- resp$data$repository$issues$pageInfo
   }
 
   return(results)
@@ -310,7 +310,7 @@ summarize_repository <- function(repo_address, max_char = 70, is_package = TRUE)
 
   ## dependencies
   description_url = glue::glue("https://raw.githubusercontent.com/{repo_address}/main/DESCRIPTION")
-  description_raw <- readLines(description_url)
+  description_raw <- readLines(curl::curl(description_url))
   ## skip the "Description: line, as it sometimes contains
   ## special characters that read_yaml doesn't like
   repo_long_summary <-grep("^Description:",
