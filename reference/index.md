@@ -2,6 +2,9 @@
 
 ## All functions
 
+- [`backup_github_info()`](https://cbedwards-dfw.github.io/codeInspectr/reference/backup_github_info.md)
+  : Copy all Issues and PRs for a user or organization
+
 - [`build_package_network()`](https://cbedwards-dfw.github.io/codeInspectr/reference/build_package_network.md)
   : Build edges of all function dependencies in package
 
@@ -30,11 +33,26 @@
 - [`get_pull_requests()`](https://cbedwards-dfw.github.io/codeInspectr/reference/get_pull_requests.md)
   : Return summary of open Github Pull Requests
 
+- [`get_raw_issues()`](https://cbedwards-dfw.github.io/codeInspectr/reference/get_raw_issues.md)
+  : Obtain Github Issues from a repository
+
+- [`get_raw_pulls()`](https://cbedwards-dfw.github.io/codeInspectr/reference/get_raw_pulls.md)
+  : Obtain Github pull requests from a repository
+
+- [`list_repos()`](https://cbedwards-dfw.github.io/codeInspectr/reference/list_repos.md)
+  : List all repositories of a Github user or organization
+
 - [`package_functions()`](https://cbedwards-dfw.github.io/codeInspectr/reference/package_functions.md)
   : List the functions of a package
 
+- [`parse_name()`](https://cbedwards-dfw.github.io/codeInspectr/reference/parse_name.md)
+  : Helper function to combine repo names if needed
+
 - [`plot_function_dependencies()`](https://cbedwards-dfw.github.io/codeInspectr/reference/plot_function_dependencies.md)
   : Plot dependency map of a function
+
+- [`process_repo()`](https://cbedwards-dfw.github.io/codeInspectr/reference/process_repo.md)
+  : Helper function to download issues/pulls of single repo
 
 - [`summarize_repository()`](https://cbedwards-dfw.github.io/codeInspectr/reference/summarize_repository.md)
   : Summarize information about a github R package

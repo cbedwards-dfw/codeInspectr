@@ -29,19 +29,27 @@ dataframe of dependency edges, with `$from` and `$to`
 ``` r
 build_package_network("codeInspectr")
 #>                           from                          to
-#> 1        build_package_network  find_function_dependencies
-#> 2        build_package_network           package_functions
-#> 3        build_recursive_edges  find_function_dependencies
-#> 4        build_recursive_edges find_recursive_dependencies
-#> 5   find_function_dependencies           package_functions
-#> 6  find_recursive_dependencies  find_function_dependencies
-#> 7  find_recursive_dependencies           package_functions
-#> 8    find_reverse_dependencies       build_package_network
-#> 9    find_reverse_dependencies           package_functions
-#> 10  plot_function_dependencies       build_recursive_edges
-#> 11        summarize_repository         get_branch_activity
-#> 12        summarize_repository                  get_issues
-#> 13        summarize_repository           get_pull_requests
-#> 14        summarize_repository         validate_repository
-#> 15            validate_integer            validate_numeric
+#> 1           backup_github_info                  list_repos
+#> 2           backup_github_info          validate_character
+#> 3           backup_github_info           validate_filepath
+#> 4        build_package_network  find_function_dependencies
+#> 5        build_package_network           package_functions
+#> 6        build_recursive_edges  find_function_dependencies
+#> 7        build_recursive_edges find_recursive_dependencies
+#> 8   find_function_dependencies           package_functions
+#> 9  find_recursive_dependencies  find_function_dependencies
+#> 10 find_recursive_dependencies           package_functions
+#> 11   find_reverse_dependencies       build_package_network
+#> 12   find_reverse_dependencies           package_functions
+#> 13              get_raw_issues                  parse_name
+#> 14               get_raw_pulls                  parse_name
+#> 15                  list_repos          validate_character
+#> 16                  parse_name          validate_character
+#> 17  plot_function_dependencies       build_recursive_edges
+#> 18        summarize_repository         get_branch_activity
+#> 19        summarize_repository                  get_issues
+#> 20        summarize_repository           get_pull_requests
+#> 21        summarize_repository         validate_repository
+#> 22           validate_filepath          validate_character
+#> 23            validate_integer            validate_numeric
 ```

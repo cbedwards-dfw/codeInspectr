@@ -10,12 +10,12 @@
 Source:
 [`DESCRIPTION`](https://github.com/cbedwards-dfw/codeInspectr/blob/main/DESCRIPTION)
 
-Edwards C (2026). *codeInspectr: What the Package Does (One Line, Title
-Case)*. R package version 0.0.0.9000,
+Edwards C (2026). *codeInspectr: Summarize Package Repositories And
+Their Relationships*. R package version 0.0.0.9000,
 <https://github.com/cbedwards-dfw/codeInspectr>.
 
     @Manual{,
-      title = {codeInspectr: What the Package Does (One Line, Title Case)},
+      title = {codeInspectr: Summarize Package Repositories And Their Relationships},
       author = {Collin Edwards},
       year = {2026},
       note = {R package version 0.0.0.9000},

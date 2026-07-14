@@ -1,6 +1,8 @@
-# codeInspectr: What the Package Does (One Line, Title Case)
+# codeInspectr: Summarize Package Repositories And Their Relationships
 
-What the package does (one paragraph).
+Helps understand github-based R packages and their relationships.
+Includes tools to summarize package status, issues, pull requests, as
+well as download complete backups of Github Issues and Pull Requests.
 
 ## See also
 

@@ -22,13 +22,17 @@ character vector of function names
 
 ``` r
 package_functions("codeInspectr")
-#>  [1] "build_package_network"       "build_recursive_edges"      
-#>  [3] "find_function_dependencies"  "find_recursive_dependencies"
-#>  [5] "find_reverse_dependencies"   "get_branch_activity"        
-#>  [7] "get_issues"                  "get_noncran_dependencies"   
-#>  [9] "get_pull_requests"           "package_functions"          
-#> [11] "plot_function_dependencies"  "summarize_repository"       
-#> [13] "validate_character"          "validate_data_frame"        
-#> [15] "validate_flag"               "validate_integer"           
-#> [17] "validate_numeric"            "validate_repository"        
+#>  [1] "backup_github_info"          "build_package_network"      
+#>  [3] "build_recursive_edges"       "find_function_dependencies" 
+#>  [5] "find_recursive_dependencies" "find_reverse_dependencies"  
+#>  [7] "get_branch_activity"         "get_issues"                 
+#>  [9] "get_noncran_dependencies"    "get_pull_requests"          
+#> [11] "get_raw_issues"              "get_raw_pulls"              
+#> [13] "list_repos"                  "package_functions"          
+#> [15] "parse_name"                  "plot_function_dependencies" 
+#> [17] "process_repo"                "summarize_repository"       
+#> [19] "validate_character"          "validate_data_frame"        
+#> [21] "validate_filepath"           "validate_flag"              
+#> [23] "validate_integer"            "validate_numeric"           
+#> [25] "validate_repository"        
 ```

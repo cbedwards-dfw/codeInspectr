@@ -1,7 +1,11 @@
 # Changelog
 
-## codeInspectr (development version)
+## codeInspectr 0.0.0.9000 (development version)
 
+- Added
+  [`backup_github_info()`](https://cbedwards-dfw.github.io/codeInspectr/reference/backup_github_info.md)
+  to download Issues and Pull Requests to local jsons.
+- added better input validation
 - addition of basic functions. Key ones:
   [`plot_function_dependencies()`](https://cbedwards-dfw.github.io/codeInspectr/reference/plot_function_dependencies.md)
   and
