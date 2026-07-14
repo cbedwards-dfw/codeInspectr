@@ -21,5 +21,4 @@ Returns github issues as a list. Github issues themselves are structured as json
 }
 \examples{
 temp <- get_raw_issues("cbedwards-dfw/codeInspectr")
-head(temp[[1]])
 }
