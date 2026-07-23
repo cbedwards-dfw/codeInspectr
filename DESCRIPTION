@@ -16,23 +16,27 @@ Suggests:
     knitr,
     rmarkdown,
     spelling,
-    testthat (>= 3.0.0),
-    withr
+    testthat (>= 3.0.0)
 Language: en-US
 Imports: 
+    callr,
     cli,
     codetools,
     curl,
     dplyr,
+    fs,
     gh,
     glue,
+    httr,
     jsonlite,
     purrr,
     rlang,
     stringr,
     tibble,
     tidyr,
+    validatr,
     visNetwork,
+    withr,
     yaml
 VignetteBuilder: knitr
 Remotes: 

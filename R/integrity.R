@@ -86,6 +86,9 @@ validate_integer <- function(x, n = NULL, ..., arg = rlang::caller_arg(x), call 
 }
 
 validate_repository <- function(x, ..., arg = rlang::caller_arg(x), call = rlang::caller_env()){
+
+  validate_character(x, n = 1)
+
   suppressWarnings(try(
     test_val <- system(paste0("git ls-remote https://github.com/", x),
                        intern = TRUE, ignore.stderr = TRUE
