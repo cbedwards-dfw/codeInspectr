@@ -38,7 +38,9 @@
 
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.0.0.9000" id="codeinspectr-0009000-development-version">codeInspectr 0.0.0.9000 (development version)<a class="anchor" aria-label="anchor" href="#codeinspectr-0009000-development-version"></a></h2>
-<ul><li>Added <code><a href="../reference/backup_github_info.html">backup_github_info()</a></code> to download Issues and Pull Requests to local jsons.</li>
+<ul><li>updated all functions that previously required a “repo address” (e.g., “FRAMverse/framrsquared”) to also work with the full github repository URL (e.g., “<a href="https://github.com/FRAMverse/framrsquared/" class="external-link uri">https://github.com/FRAMverse/framrsquared/</a>”). Should help avoid confusion, simplify user experience.</li>
+<li>Added suite of tools for creating PDF versions of package documentation and vignettes. Primary function for users is <code><a href="../reference/compile_package_manuals.html">compile_package_manuals()</a></code> (to compile documentation / vignettes for all Github-based R packages stored under a specific user or organization) or <code><a href="../reference/build_package_manual.html">build_package_manual()</a></code> (to build documentation for a single R package accessible as a Github repository). Additional package dependencies for this process have been added as “Suggests” to avoid bloating required packages for a single task.</li>
+<li>Added <code><a href="../reference/backup_github_info.html">backup_github_info()</a></code> to download Issues and Pull Requests to local jsons.</li>
 <li>added better input validation</li>
 <li>addition of basic functions. Key ones: <code><a href="../reference/plot_function_dependencies.html">plot_function_dependencies()</a></code> and <code><a href="../reference/find_reverse_dependencies.html">find_reverse_dependencies()</a></code>
 </li>

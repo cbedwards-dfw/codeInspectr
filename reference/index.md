@@ -5,11 +5,20 @@
 - [`backup_github_info()`](https://cbedwards-dfw.github.io/codeInspectr/reference/backup_github_info.md)
   : Copy all Issues and PRs for a user or organization
 
+- [`build_package_manual()`](https://cbedwards-dfw.github.io/codeInspectr/reference/build_package_manual.md)
+  : Build manual (and optionally vignettes) for individual repository
+
 - [`build_package_network()`](https://cbedwards-dfw.github.io/codeInspectr/reference/build_package_network.md)
   : Build edges of all function dependencies in package
 
 - [`build_recursive_edges()`](https://cbedwards-dfw.github.io/codeInspectr/reference/build_recursive_edges.md)
   : Build dataframe of edges of recursive dependencies
+
+- [`compile_package_manuals()`](https://cbedwards-dfw.github.io/codeInspectr/reference/compile_package_manuals.md)
+  : Save R package documentation as PDFs
+
+- [`compile_vignettes()`](https://cbedwards-dfw.github.io/codeInspectr/reference/compile_vignettes.md)
+  : Create vignettes for R package
 
 - [`find_function_dependencies()`](https://cbedwards-dfw.github.io/codeInspectr/reference/find_function_dependencies.md)
   : List the functions in a package that depend on a function
@@ -39,6 +48,9 @@
 - [`get_raw_pulls()`](https://cbedwards-dfw.github.io/codeInspectr/reference/get_raw_pulls.md)
   : Obtain Github pull requests from a repository
 
+- [`is_r_package()`](https://cbedwards-dfw.github.io/codeInspectr/reference/is_r_package.md)
+  : Test if repository is an R package
+
 - [`list_repos()`](https://cbedwards-dfw.github.io/codeInspectr/reference/list_repos.md)
   : List all repositories of a Github user or organization
 
@@ -53,6 +65,9 @@
 
 - [`process_repo()`](https://cbedwards-dfw.github.io/codeInspectr/reference/process_repo.md)
   : Helper function to download issues/pulls of single repo
+
+- [`safe_dir_delete()`](https://cbedwards-dfw.github.io/codeInspectr/reference/safe_dir_delete.md)
+  : Delete a directory, retrying on transient Windows file locks
 
 - [`summarize_repository()`](https://cbedwards-dfw.github.io/codeInspectr/reference/summarize_repository.md)
   : Summarize information about a github R package

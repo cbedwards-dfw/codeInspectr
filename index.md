@@ -3,8 +3,11 @@
 The goal of codeInspectr is to make it easy to understand R packages and
 the relationships between functions of that package. This includes tools
 for looking at function dependencies within an installed package, and
-summarizing information about a github repository. It also offers tools
-for downloading issues and pull requests.
+summarizing information about a github repository.
+
+`codeInspectr` also offers tools to back up aspects of github:
+downloading issues, pull requests, and compiling R package documentation
+and vignettes into local pdfs.
 
 ## Installation
 

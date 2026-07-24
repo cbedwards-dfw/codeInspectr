@@ -6,7 +6,7 @@ Helper function to combine repo names if needed
 
 ``` r
 parse_name(
-  full_name = NULL,
+  repo_address = NULL,
   entity_name = NULL,
   repo_name = NULL,
   call = rlang::caller_env()
@@ -15,22 +15,23 @@ parse_name(
 
 ## Arguments
 
-- full_name:
+- repo_address:
 
   Github identifier in the form of {name}/{repository}, as in
-  "FRAMverse/codeInspectr". Character string, defaults to NULL. If not
-  provided, users must instead provide the same information in
-  `entity_name` and `repo_name`.
+  "FRAMverse/codeInspectr". Can also be in the form of full URL (e.g.
+  "https://github.com/FRAMverse/framrsquared/"). Character string,
+  defaults to NULL. If not provided, users must instead provide the same
+  information in `entity_name` and `repo_name`.
 
 - entity_name:
 
-  Only needed if `full_name` is not provided. Name of a github user or
-  organization repository, e.g., "FRAMverse". Character atomic, defaults
-  to `NULL`.
+  Only needed if `repo_address` is not provided. Name of a github user
+  or organization repository, e.g., "FRAMverse". Character atomic,
+  defaults to `NULL`.
 
 - repo_name:
 
-  Only needed if `full_name` is not provided. Name of individual
+  Only needed if `repo_address` is not provided. Name of individual
   repository, e.g., "codeInspectr". Character atomic, defaults to
   `NULL`.
 

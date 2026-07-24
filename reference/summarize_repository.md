@@ -13,7 +13,8 @@ summarize_repository(repo_address, max_char = 70, is_package = TRUE)
 - repo_address:
 
   Github repository address for an R package, of the form
-  "user/repository", as in `"FRAMverse/framrsquared"`
+  "user/repository", as in `"FRAMverse/framrsquared"`. Also accepts full
+  URL, as in `"https://github.com/FRAMverse/framrsquared/"`
 
 - max_char:
 

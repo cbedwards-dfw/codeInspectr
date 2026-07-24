@@ -49,7 +49,8 @@ user or organization specified</p>
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">list_repos</span><span class="op">(</span></span>
 <span>  <span class="va">name</span>,</span>
 <span>  entity_type <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"user"</span>, <span class="st">"org"</span><span class="op">)</span>,</span>
-<span>  repo_type <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"all"</span>, <span class="st">"public"</span>, <span class="st">"private"</span>, <span class="st">"forks"</span><span class="op">)</span></span>
+<span>  repo_type <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"all"</span>, <span class="st">"public"</span>, <span class="st">"private"</span>, <span class="st">"forks"</span><span class="op">)</span>,</span>
+<span>  r_package_status <span class="op">=</span> <span class="cn">FALSE</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -68,6 +69,10 @@ user or organization specified</p>
 <dt id="arg-repo-type">repo_type<a class="anchor" aria-label="anchor" href="#arg-repo-type"></a></dt>
 <dd><p>List "all" repos, "public" repos, "private" repos, or only "fork" repos? Character atomic, defaults to "all". Private repos will only be provided if you have access to the private repos of that user or org.</p></dd>
 
+
+<dt id="arg-r-package-status">r_package_status<a class="anchor" aria-label="anchor" href="#arg-r-package-status"></a></dt>
+<dd><p>Check if each repository is an R package. Increases runtime considerably (e.g., ~1 sec per repo). Logical, defaults to FALSE</p></dd>
+
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
@@ -77,35 +82,37 @@ user or organization specified</p>
 <li><p><code>$description</code>: description listed for the repository.</p></li>
 <li><p><code>$stars</code>: number of followers of the repository</p></li>
 <li><p><code>$language</code>: programming language(s) of the repository.</p></li>
+<li><p><code>$default_branch</code>: the name of the default branch (e.g., "main").</p></li>
+<li><p><code>$r_package</code>: is the repository an R package? Logical, only present for optional argument <code>r_package_status = TRUE</code>.</p></li>
 </ul></div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">list_repos</span><span class="op">(</span><span class="st">"FRAMverse"</span>, entity_type <span class="op">=</span> <span class="st">"org"</span>, repo_type <span class="op">=</span> <span class="st">"public"</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ⠙ 20 items, page 1 | 2ms</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 20 × 6</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    name                     full_name        html_url description stars language</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> FRAM                     FRAMverse/FRAM   https:/… FRAM and F…     5 Visual …</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> CalibrationProgram       FRAMverse/Calib… https:/… <span style="color: #BB0000;">NA</span>              0 <span style="color: #BB0000;">NA</span>      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> fram_doc                 FRAMverse/fram_… https:/… Documentat…     4 R       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> framr                    FRAMverse/framr  https:/… R package …     7 R       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> sport_harvest_estimator  FRAMverse/sport… https:/… Decision s…     3 R       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> rrCoho                   FRAMverse/rrCoho https:/… Run recons…     3 <span style="color: #BB0000;">NA</span>      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> rmis                     FRAMverse/rmis   https:/… These scri…     0 R       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> regs_database            FRAMverse/regs_… https:/… Database w…     0 HTML    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> regulations_database     FRAMverse/regul… https:/… PosgreSQL …     0 <span style="color: #BB0000;">NA</span>      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> framrsquared             FRAMverse/framr… https:/… R Package …     9 R       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">11</span> snippets                 FRAMverse/snipp… https:/… Code Snipp…     1 HTML    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">12</span> framrosetta              FRAMverse/framr… https:/… Data libra…     1 R       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">13</span> pssp                     FRAMverse/pssp   https:/… Rewrite of…     0 R       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">14</span> FRAMBuilder              FRAMverse/FRAMB… https:/… <span style="color: #BB0000;">NA</span>              0 Visual …</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">15</span> coding-practices         FRAMverse/codin… https:/… Our evolvi…     1 <span style="color: #BB0000;">NA</span>      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">16</span> FRAMverse.r-universe.dev FRAMverse/FRAMv… https:/… <span style="color: #BB0000;">NA</span>              0 <span style="color: #BB0000;">NA</span>      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">17</span> FRAM_automation          FRAMverse/FRAM_… https:/… Collin's d…     0 Visual …</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">18</span> framqaqc                 FRAMverse/framq… https:/… QAQC tools…     0 R       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">19</span> .github                  FRAMverse/.gith… https:/… profile re…     0 <span style="color: #BB0000;">NA</span>      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">20</span> validatr                 FRAMverse/valid… https:/… One Stop S…     0 R       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 20 × 7</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    name             full_name html_url description stars language default_branch</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> FRAM             FRAMvers… https:/… FRAM and F…     6 Visual … master        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> CalibrationProg… FRAMvers… https:/… <span style="color: #BB0000;">NA</span>              0 <span style="color: #BB0000;">NA</span>       master        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> fram_doc         FRAMvers… https:/… Documentat…     4 R        master        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> framr            FRAMvers… https:/… R package …     7 R        master        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> sport_harvest_e… FRAMvers… https:/… Decision s…     3 R        main          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> rrCoho           FRAMvers… https:/… Run recons…     3 <span style="color: #BB0000;">NA</span>       main          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> rmis             FRAMvers… https:/… These scri…     0 R        main          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> regs_database    FRAMvers… https:/… Database w…     0 HTML     main          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> regulations_dat… FRAMvers… https:/… PosgreSQL …     0 <span style="color: #BB0000;">NA</span>       main          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> framrsquared     FRAMvers… https:/… R Package …     9 R        main          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">11</span> snippets         FRAMvers… https:/… Code Snipp…     1 HTML     main          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">12</span> framrosetta      FRAMvers… https:/… Data libra…     1 R        main          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">13</span> pssp             FRAMvers… https:/… Rewrite of…     0 R        main          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">14</span> FRAMBuilder      FRAMvers… https:/… <span style="color: #BB0000;">NA</span>              0 Visual … master        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">15</span> coding-practices FRAMvers… https:/… Our evolvi…     1 <span style="color: #BB0000;">NA</span>       main          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">16</span> FRAMverse.r-uni… FRAMvers… https:/… <span style="color: #BB0000;">NA</span>              0 <span style="color: #BB0000;">NA</span>       main          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">17</span> FRAM_automation  FRAMvers… https:/… Collin's d…     0 Visual … master        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">18</span> framqaqc         FRAMvers… https:/… QAQC tools…     0 R        main          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">19</span> .github          FRAMvers… https:/… profile re…     0 <span style="color: #BB0000;">NA</span>       main          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">20</span> validatr         FRAMvers… https:/… One Stop S…     0 R        main          </span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

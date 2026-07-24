@@ -9,7 +9,8 @@ organization specified
 list_repos(
   name,
   entity_type = c("user", "org"),
-  repo_type = c("all", "public", "private", "forks")
+  repo_type = c("all", "public", "private", "forks"),
+  r_package_status = FALSE
 )
 ```
 
@@ -31,6 +32,11 @@ list_repos(
   repos? Character atomic, defaults to "all". Private repos will only be
   provided if you have access to the private repos of that user or org.
 
+- r_package_status:
+
+  Check if each repository is an R package. Increases runtime
+  considerably (e.g., ~1 sec per repo). Logical, defaults to FALSE
+
 ## Value
 
 Data frame of repositories with columns
@@ -48,32 +54,37 @@ Data frame of repositories with columns
 
 - `$language`: programming language(s) of the repository.
 
+- `$default_branch`: the name of the default branch (e.g., "main").
+
+- `$r_package`: is the repository an R package? Logical, only present
+  for optional argument `r_package_status = TRUE`.
+
 ## Examples
 
 ``` r
 list_repos("FRAMverse", entity_type = "org", repo_type = "public")
 #> ⠙ 20 items, page 1 | 2ms
-#> # A tibble: 20 × 6
-#>    name                     full_name        html_url description stars language
-#>    <chr>                    <chr>            <chr>    <chr>       <int> <chr>   
-#>  1 FRAM                     FRAMverse/FRAM   https:/… FRAM and F…     5 Visual …
-#>  2 CalibrationProgram       FRAMverse/Calib… https:/… NA              0 NA      
-#>  3 fram_doc                 FRAMverse/fram_… https:/… Documentat…     4 R       
-#>  4 framr                    FRAMverse/framr  https:/… R package …     7 R       
-#>  5 sport_harvest_estimator  FRAMverse/sport… https:/… Decision s…     3 R       
-#>  6 rrCoho                   FRAMverse/rrCoho https:/… Run recons…     3 NA      
-#>  7 rmis                     FRAMverse/rmis   https:/… These scri…     0 R       
-#>  8 regs_database            FRAMverse/regs_… https:/… Database w…     0 HTML    
-#>  9 regulations_database     FRAMverse/regul… https:/… PosgreSQL …     0 NA      
-#> 10 framrsquared             FRAMverse/framr… https:/… R Package …     9 R       
-#> 11 snippets                 FRAMverse/snipp… https:/… Code Snipp…     1 HTML    
-#> 12 framrosetta              FRAMverse/framr… https:/… Data libra…     1 R       
-#> 13 pssp                     FRAMverse/pssp   https:/… Rewrite of…     0 R       
-#> 14 FRAMBuilder              FRAMverse/FRAMB… https:/… NA              0 Visual …
-#> 15 coding-practices         FRAMverse/codin… https:/… Our evolvi…     1 NA      
-#> 16 FRAMverse.r-universe.dev FRAMverse/FRAMv… https:/… NA              0 NA      
-#> 17 FRAM_automation          FRAMverse/FRAM_… https:/… Collin's d…     0 Visual …
-#> 18 framqaqc                 FRAMverse/framq… https:/… QAQC tools…     0 R       
-#> 19 .github                  FRAMverse/.gith… https:/… profile re…     0 NA      
-#> 20 validatr                 FRAMverse/valid… https:/… One Stop S…     0 R       
+#> # A tibble: 20 × 7
+#>    name             full_name html_url description stars language default_branch
+#>    <chr>            <chr>     <chr>    <chr>       <int> <chr>    <chr>         
+#>  1 FRAM             FRAMvers… https:/… FRAM and F…     6 Visual … master        
+#>  2 CalibrationProg… FRAMvers… https:/… NA              0 NA       master        
+#>  3 fram_doc         FRAMvers… https:/… Documentat…     4 R        master        
+#>  4 framr            FRAMvers… https:/… R package …     7 R        master        
+#>  5 sport_harvest_e… FRAMvers… https:/… Decision s…     3 R        main          
+#>  6 rrCoho           FRAMvers… https:/… Run recons…     3 NA       main          
+#>  7 rmis             FRAMvers… https:/… These scri…     0 R        main          
+#>  8 regs_database    FRAMvers… https:/… Database w…     0 HTML     main          
+#>  9 regulations_dat… FRAMvers… https:/… PosgreSQL …     0 NA       main          
+#> 10 framrsquared     FRAMvers… https:/… R Package …     9 R        main          
+#> 11 snippets         FRAMvers… https:/… Code Snipp…     1 HTML     main          
+#> 12 framrosetta      FRAMvers… https:/… Data libra…     1 R        main          
+#> 13 pssp             FRAMvers… https:/… Rewrite of…     0 R        main          
+#> 14 FRAMBuilder      FRAMvers… https:/… NA              0 Visual … master        
+#> 15 coding-practices FRAMvers… https:/… Our evolvi…     1 NA       main          
+#> 16 FRAMverse.r-uni… FRAMvers… https:/… NA              0 NA       main          
+#> 17 FRAM_automation  FRAMvers… https:/… Collin's d…     0 Visual … master        
+#> 18 framqaqc         FRAMvers… https:/… QAQC tools…     0 R        main          
+#> 19 .github          FRAMvers… https:/… profile re…     0 NA       main          
+#> 20 validatr         FRAMvers… https:/… One Stop S…     0 R        main          
 ```

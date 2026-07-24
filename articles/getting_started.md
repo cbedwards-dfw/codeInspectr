@@ -714,19 +714,22 @@ First, we can list the functions in a package
 package_functions("codeInspectr")
 ```
 
-    ##  [1] "backup_github_info"          "build_package_network"      
-    ##  [3] "build_recursive_edges"       "find_function_dependencies" 
-    ##  [5] "find_recursive_dependencies" "find_reverse_dependencies"  
-    ##  [7] "get_branch_activity"         "get_issues"                 
-    ##  [9] "get_noncran_dependencies"    "get_pull_requests"          
-    ## [11] "get_raw_issues"              "get_raw_pulls"              
-    ## [13] "list_repos"                  "package_functions"          
-    ## [15] "parse_name"                  "plot_function_dependencies" 
-    ## [17] "process_repo"                "summarize_repository"       
-    ## [19] "validate_character"          "validate_data_frame"        
-    ## [21] "validate_filepath"           "validate_flag"              
-    ## [23] "validate_integer"            "validate_numeric"           
-    ## [25] "validate_repository"
+    ##  [1] "backup_github_info"          "build_package_manual"       
+    ##  [3] "build_package_network"       "build_recursive_edges"      
+    ##  [5] "compile_package_manuals"     "compile_vignettes"          
+    ##  [7] "find_function_dependencies"  "find_recursive_dependencies"
+    ##  [9] "find_reverse_dependencies"   "get_branch_activity"        
+    ## [11] "get_issues"                  "get_noncran_dependencies"   
+    ## [13] "get_pull_requests"           "get_raw_issues"             
+    ## [15] "get_raw_pulls"               "github_to_repo_address"     
+    ## [17] "is_r_package"                "list_repos"                 
+    ## [19] "package_functions"           "parse_name"                 
+    ## [21] "plot_function_dependencies"  "process_repo"               
+    ## [23] "quiet_console"               "safe_dir_delete"            
+    ## [25] "summarize_repository"        "validate_character"         
+    ## [27] "validate_data_frame"         "validate_filepath"          
+    ## [29] "validate_flag"               "validate_integer"           
+    ## [31] "validate_numeric"            "validate_repository"
 
 ### Plotting dependency network
 
@@ -822,8 +825,8 @@ function uses:
 find_function_dependencies("codeInspectr", fun = "summarize_repository")
 ```
 
-    ## [1] "get_branch_activity" "get_issues"          "get_pull_requests"  
-    ## [4] "validate_repository"
+    ## [1] "get_branch_activity"    "get_issues"             "get_pull_requests"     
+    ## [4] "github_to_repo_address"
 
 Optionally, we can list dependencies on all functions, including those
 outside of the focal package. `include = "no operators"` will (usually)
@@ -834,10 +837,10 @@ exclude R operators from the list of functions used:
 find_function_dependencies("codeInspectr", fun = "summarize_repository", include = "no operators")
 ```
 
-    ##  [1] "basename"            "get_branch_activity" "get_issues"         
-    ##  [4] "get_pull_requests"   "grep"                "gsub"               
-    ##  [7] "list"                "readLines"           "return"             
-    ## [10] "validate_repository"
+    ##  [1] "basename"               "get_branch_activity"    "get_issues"            
+    ##  [4] "get_pull_requests"      "github_to_repo_address" "grep"                  
+    ##  [7] "gsub"                   "list"                   "readLines"             
+    ## [10] "return"
 
 while `include = "all"` will also list operators:
 
@@ -846,11 +849,11 @@ while `include = "all"` will also list operators:
 find_function_dependencies("codeInspectr", fun = "summarize_repository", include = "all")
 ```
 
-    ##  [1] "::"                  "{"                   "<-"                 
-    ##  [4] "="                   "$"                   "basename"           
-    ##  [7] "get_branch_activity" "get_issues"          "get_pull_requests"  
-    ## [10] "grep"                "gsub"                "list"               
-    ## [13] "readLines"           "return"              "validate_repository"
+    ##  [1] "::"                     "{"                      "<-"                    
+    ##  [4] "="                      "$"                      "basename"              
+    ##  [7] "get_branch_activity"    "get_issues"             "get_pull_requests"     
+    ## [10] "github_to_repo_address" "grep"                   "gsub"                  
+    ## [13] "list"                   "readLines"              "return"
 
 We can also work the other direction: what functions in the package
 depend on a focal function? For this we use
@@ -915,7 +918,7 @@ find_reverse_dependencies("framrsquared", "fetch_table_")
 
 We would need to check that all of those functions still worked.
 
-## Downloading Pull Requests and Issues
+## Backing up information from Github
 
 If you lose access to a github repository, you lose access to the Issues
 and Pull Requests as well. You may be able to recreate the repository
@@ -925,3 +928,9 @@ from your local version, but not the Issues and Pull requests.
 can be used to save Issues and PRs locally for all repositories of a
 given user or organization. Using this function regularly to maintain a
 backup of these key tools.
+
+It may also be useful to have local versions of documentation and
+vignettes.
+[`compile_package_manuals()`](https://cbedwards-dfw.github.io/codeInspectr/reference/compile_package_manuals.md)
+will create pdf manuals (and optionally vignettes) for all R packages of
+a given user or organization.

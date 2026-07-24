@@ -756,19 +756,22 @@ codeInspectr package itself with those tools.</p>
 <p>First, we can list the functions in a package</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/package_functions.html">package_functions</a></span><span class="op">(</span><span class="st">"codeInspectr"</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">##  [1] "backup_github_info"          "build_package_network"      </span></span>
-<span><span class="co">##  [3] "build_recursive_edges"       "find_function_dependencies" </span></span>
-<span><span class="co">##  [5] "find_recursive_dependencies" "find_reverse_dependencies"  </span></span>
-<span><span class="co">##  [7] "get_branch_activity"         "get_issues"                 </span></span>
-<span><span class="co">##  [9] "get_noncran_dependencies"    "get_pull_requests"          </span></span>
-<span><span class="co">## [11] "get_raw_issues"              "get_raw_pulls"              </span></span>
-<span><span class="co">## [13] "list_repos"                  "package_functions"          </span></span>
-<span><span class="co">## [15] "parse_name"                  "plot_function_dependencies" </span></span>
-<span><span class="co">## [17] "process_repo"                "summarize_repository"       </span></span>
-<span><span class="co">## [19] "validate_character"          "validate_data_frame"        </span></span>
-<span><span class="co">## [21] "validate_filepath"           "validate_flag"              </span></span>
-<span><span class="co">## [23] "validate_integer"            "validate_numeric"           </span></span>
-<span><span class="co">## [25] "validate_repository"</span></span></code></pre>
+<pre><code><span><span class="co">##  [1] "backup_github_info"          "build_package_manual"       </span></span>
+<span><span class="co">##  [3] "build_package_network"       "build_recursive_edges"      </span></span>
+<span><span class="co">##  [5] "compile_package_manuals"     "compile_vignettes"          </span></span>
+<span><span class="co">##  [7] "find_function_dependencies"  "find_recursive_dependencies"</span></span>
+<span><span class="co">##  [9] "find_reverse_dependencies"   "get_branch_activity"        </span></span>
+<span><span class="co">## [11] "get_issues"                  "get_noncran_dependencies"   </span></span>
+<span><span class="co">## [13] "get_pull_requests"           "get_raw_issues"             </span></span>
+<span><span class="co">## [15] "get_raw_pulls"               "github_to_repo_address"     </span></span>
+<span><span class="co">## [17] "is_r_package"                "list_repos"                 </span></span>
+<span><span class="co">## [19] "package_functions"           "parse_name"                 </span></span>
+<span><span class="co">## [21] "plot_function_dependencies"  "process_repo"               </span></span>
+<span><span class="co">## [23] "quiet_console"               "safe_dir_delete"            </span></span>
+<span><span class="co">## [25] "summarize_repository"        "validate_character"         </span></span>
+<span><span class="co">## [27] "validate_data_frame"         "validate_filepath"          </span></span>
+<span><span class="co">## [29] "validate_flag"               "validate_integer"           </span></span>
+<span><span class="co">## [31] "validate_numeric"            "validate_repository"</span></span></code></pre>
 <div class="section level3">
 <h3 id="plotting-dependency-network">Plotting dependency network<a class="anchor" aria-label="anchor" href="#plotting-dependency-network"></a>
 </h3>
@@ -781,7 +784,7 @@ package</em>, not dependencies on functions from other packages</p>
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/plot_function_dependencies.html">plot_function_dependencies</a></span><span class="op">(</span><span class="st">"codeInspectr"</span>,</span>
 <span>                           fun <span class="op">=</span> <span class="st">"summarize_repository"</span><span class="op">)</span></span></code></pre></div>
 <div class="visNetwork html-widget html-fill-item" id="htmlwidget-ac96cb3ee4656e2e9ec3" style="width:700px;height:432.632880098888px;"></div>
-<script type="application/json" data-for="htmlwidget-ac96cb3ee4656e2e9ec3">{"x":{"nodes":{"id":["summarize_repository","get_branch_activity","get_issues","get_pull_requests","validate_repository"],"label":["summarize_repository","get_branch_activity","get_issues","get_pull_requests","validate_repository"],"color":["lightblue","lightgray","lightgray","lightgray","lightgray"]},"edges":{"from":["summarize_repository","summarize_repository","summarize_repository","summarize_repository"],"to":["get_branch_activity","get_issues","get_pull_requests","validate_repository"]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"box"},"manipulation":{"enabled":false},"edges":{"arrows":"from"}},"groups":null,"width":null,"height":null,"idselection":{"enabled":true,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","highlight":{"enabled":true,"hoverNearest":false,"degree":1,"algorithm":"all","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":false,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"}},"evals":[],"jsHooks":[]}</script><p>This kind of plot can help understand how different parts of a
+<script type="application/json" data-for="htmlwidget-ac96cb3ee4656e2e9ec3">{"x":{"nodes":{"id":["summarize_repository","get_branch_activity","get_issues","get_pull_requests","github_to_repo_address","validate_repository","validate_character"],"label":["summarize_repository","get_branch_activity","get_issues","get_pull_requests","github_to_repo_address","validate_repository","validate_character"],"color":["lightblue","lightgray","lightgray","lightgray","lightgray","lightgray","lightgray"]},"edges":{"from":["summarize_repository","summarize_repository","summarize_repository","summarize_repository","get_branch_activity","get_issues","get_pull_requests","github_to_repo_address","github_to_repo_address","validate_repository"],"to":["get_branch_activity","get_issues","get_pull_requests","github_to_repo_address","github_to_repo_address","github_to_repo_address","github_to_repo_address","validate_character","validate_repository","validate_character"]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"box"},"manipulation":{"enabled":false},"edges":{"arrows":"from"}},"groups":null,"width":null,"height":null,"idselection":{"enabled":true,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","highlight":{"enabled":true,"hoverNearest":false,"degree":1,"algorithm":"all","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":false,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"}},"evals":[],"jsHooks":[]}</script><p>This kind of plot can help understand how different parts of a
 package interact. There is also the option to ignore functions that
 match one or more regex patterns. This can be helpful for removing
 validation functions that would otherwise clog up a network diagram.
@@ -839,26 +842,26 @@ that the listed function depends on.</p>
 <code><a href="../reference/summarize_repository.html">summarize_repository()</a></code> function uses:</p>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/find_function_dependencies.html">find_function_dependencies</a></span><span class="op">(</span><span class="st">"codeInspectr"</span>, fun <span class="op">=</span> <span class="st">"summarize_repository"</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## [1] "get_branch_activity" "get_issues"          "get_pull_requests"  </span></span>
-<span><span class="co">## [4] "validate_repository"</span></span></code></pre>
+<pre><code><span><span class="co">## [1] "get_branch_activity"    "get_issues"             "get_pull_requests"     </span></span>
+<span><span class="co">## [4] "github_to_repo_address"</span></span></code></pre>
 <p>Optionally, we can list dependencies on all functions, including
 those outside of the focal package.
 <code>include = "no operators"</code> will (usually) exclude R operators
 from the list of functions used:</p>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/find_function_dependencies.html">find_function_dependencies</a></span><span class="op">(</span><span class="st">"codeInspectr"</span>, fun <span class="op">=</span> <span class="st">"summarize_repository"</span>, include <span class="op">=</span> <span class="st">"no operators"</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">##  [1] "basename"            "get_branch_activity" "get_issues"         </span></span>
-<span><span class="co">##  [4] "get_pull_requests"   "grep"                "gsub"               </span></span>
-<span><span class="co">##  [7] "list"                "readLines"           "return"             </span></span>
-<span><span class="co">## [10] "validate_repository"</span></span></code></pre>
+<pre><code><span><span class="co">##  [1] "basename"               "get_branch_activity"    "get_issues"            </span></span>
+<span><span class="co">##  [4] "get_pull_requests"      "github_to_repo_address" "grep"                  </span></span>
+<span><span class="co">##  [7] "gsub"                   "list"                   "readLines"             </span></span>
+<span><span class="co">## [10] "return"</span></span></code></pre>
 <p>while <code>include = "all"</code> will also list operators:</p>
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/find_function_dependencies.html">find_function_dependencies</a></span><span class="op">(</span><span class="st">"codeInspectr"</span>, fun <span class="op">=</span> <span class="st">"summarize_repository"</span>, include <span class="op">=</span> <span class="st">"all"</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">##  [1] "::"                  "{"                   "&lt;-"                 </span></span>
-<span><span class="co">##  [4] "="                   "$"                   "basename"           </span></span>
-<span><span class="co">##  [7] "get_branch_activity" "get_issues"          "get_pull_requests"  </span></span>
-<span><span class="co">## [10] "grep"                "gsub"                "list"               </span></span>
-<span><span class="co">## [13] "readLines"           "return"              "validate_repository"</span></span></code></pre>
+<pre><code><span><span class="co">##  [1] "::"                     "{"                      "&lt;-"                    </span></span>
+<span><span class="co">##  [4] "="                      "$"                      "basename"              </span></span>
+<span><span class="co">##  [7] "get_branch_activity"    "get_issues"             "get_pull_requests"     </span></span>
+<span><span class="co">## [10] "github_to_repo_address" "grep"                   "gsub"                  </span></span>
+<span><span class="co">## [13] "list"                   "readLines"              "return"</span></span></code></pre>
 <p>We can also work the other direction: what functions in the package
 depend on a focal function? For this we use
 <code><a href="../reference/find_reverse_dependencies.html">find_reverse_dependencies()</a></code></p>
@@ -904,7 +907,7 @@ package?</p>
 </div>
 </div>
 <div class="section level2">
-<h2 id="downloading-pull-requests-and-issues">Downloading Pull Requests and Issues<a class="anchor" aria-label="anchor" href="#downloading-pull-requests-and-issues"></a>
+<h2 id="backing-up-information-from-github">Backing up information from Github<a class="anchor" aria-label="anchor" href="#backing-up-information-from-github"></a>
 </h2>
 <p>If you lose access to a github repository, you lose access to the
 Issues and Pull Requests as well. You may be able to recreate the
@@ -913,6 +916,10 @@ requests.</p>
 <p><code><a href="../reference/backup_github_info.html">backup_github_info()</a></code> can be used to save Issues and PRs
 locally for all repositories of a given user or organization. Using this
 function regularly to maintain a backup of these key tools.</p>
+<p>It may also be useful to have local versions of documentation and
+vignettes. <code><a href="../reference/compile_package_manuals.html">compile_package_manuals()</a></code> will create pdf
+manuals (and optionally vignettes) for all R packages of a given user or
+organization.</p>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>

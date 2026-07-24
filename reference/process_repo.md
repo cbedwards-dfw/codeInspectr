@@ -6,7 +6,7 @@ Intended for use in purr workflow in
 ## Usage
 
 ``` r
-process_repo(repo_name, full_name, save_location)
+process_repo(repo_name, repo_address, save_location)
 ```
 
 ## Arguments
@@ -15,7 +15,7 @@ process_repo(repo_name, full_name, save_location)
 
   Name of repository (e.g. "codeInspectr")
 
-- full_name:
+- repo_address:
 
   Full github name (e.g., "FRAMverse/codeInspectr")
 
