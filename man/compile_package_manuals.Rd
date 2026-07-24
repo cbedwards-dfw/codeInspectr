@@ -40,7 +40,9 @@ installed (whatever packages the vignettes depend on).
 \examples{
 \dontrun{
 # build manuals and vignettes for all R packages in the FRAMverse organization.
-compile_package_manuals("C:/Repos/manuals",
-                        name = "FRAMverse", entity_type = "org", build_vignettes = TRUE)
+compile_package_manuals(output_path = "C:/Repos/manuals",
+                        name = "FRAMverse",
+                        entity_type = "org",
+                        build_vignettes = TRUE)
 }
 }

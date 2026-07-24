@@ -5,14 +5,15 @@
 \title{Build manual (and optionally vignettes) for individual repository}
 \usage{
 build_package_manual(
-  full_name,
+  repo_address,
   output_path,
   build_vignettes = FALSE,
   verbose = TRUE
 )
 }
 \arguments{
-\item{full_name}{Github repository "full name" of form \code{{user}/{repository}}, as in \code{"FRAMverse/framrsquared"}. Character atomic.}
+\item{repo_address}{Github repository "full name" of form \code{{user}/{repository}}, as in \code{"FRAMverse/framrsquared"}.
+Also accepts full url (e.g., \verb{"https://github.com/FRAMverse/framrsquared/}) Character atomic.}
 
 \item{output_path}{Filepath for a directory into which to save manuals. Character atomic.}
 

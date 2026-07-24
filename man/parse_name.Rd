@@ -5,18 +5,20 @@
 \title{Helper function to combine repo names if needed}
 \usage{
 parse_name(
-  full_name = NULL,
+  repo_address = NULL,
   entity_name = NULL,
   repo_name = NULL,
   call = rlang::caller_env()
 )
 }
 \arguments{
-\item{full_name}{Github identifier in the form of \{name\}/\{repository\}, as in "FRAMverse/codeInspectr". Character string, defaults to NULL. If not provided, users must instead provide the same information in \code{entity_name} and \code{repo_name}.}
+\item{repo_address}{Github identifier in the form of \{name\}/\{repository\}, as in "FRAMverse/codeInspectr".
+Can also be in the form of full URL (e.g. "https://github.com/FRAMverse/framrsquared/").
+Character string, defaults to NULL. If not provided, users must instead provide the same information in \code{entity_name} and \code{repo_name}.}
 
-\item{entity_name}{Only needed if \code{full_name} is not provided. Name of a github user or organization repository, e.g., "FRAMverse". Character atomic, defaults to \code{NULL}.}
+\item{entity_name}{Only needed if \code{repo_address} is not provided. Name of a github user or organization repository, e.g., "FRAMverse". Character atomic, defaults to \code{NULL}.}
 
-\item{repo_name}{Only needed if \code{full_name} is not provided. Name of individual repository, e.g., "codeInspectr". Character atomic, defaults to \code{NULL}.}
+\item{repo_name}{Only needed if \code{repo_address} is not provided. Name of individual repository, e.g., "codeInspectr". Character atomic, defaults to \code{NULL}.}
 
 \item{call}{Ensure error messages mention the calling function.}
 }

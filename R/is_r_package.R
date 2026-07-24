@@ -4,7 +4,7 @@
 #' the provided repository is an R package. Accesses first few lines of DESCRIPTION in `raw.githubusercontent.com/`
 #' for speed.
 #'
-#' @param full_name Repository name including user or organization prefix, e.g., "FRAMverse/framrsquared". Character atomic
+#' @param repo_address Repository name including user or organization prefix, e.g., "FRAMverse/framrsquared". Character atomic
 #' @param default_branch Name of the default/primary repository. Character atomic, defaults to "main". Older repositories often use "master" as the default repo name.
 #'
 #' @returns Logical: `TRUE` if the repo is an R package, `FALSE` if it is not.
@@ -15,12 +15,12 @@
 #' is_r_package("FRAMverse/framrsquared")
 #' # the snippets repository is not.
 #' is_r_package("FRAMverse/snippets")
-is_r_package <- function(full_name, default_branch = "main") {
+is_r_package <- function(repo_address, default_branch = "main") {
 
-  validate_repository(full_name)
-  validatr::validate_character(default_branch, n = 1)
+  repo_address <- github_to_repo_address(repo_address)
+  validate_character(default_branch, n = 1)
 
-  url <- glue::glue("https://raw.githubusercontent.com/{full_name}/{default_branch}/DESCRIPTION")
+  url <- glue::glue("https://raw.githubusercontent.com/{repo_address}/{default_branch}/DESCRIPTION")
   resp <- tryCatch(
     httr2::request(url) |>
       httr2::req_headers(Range = "bytes=0-100") |>

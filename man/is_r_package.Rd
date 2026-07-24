@@ -4,10 +4,10 @@
 \alias{is_r_package}
 \title{Test if repository is an R package}
 \usage{
-is_r_package(full_name, default_branch = "main")
+is_r_package(repo_address, default_branch = "main")
 }
 \arguments{
-\item{full_name}{Repository name including user or organization prefix, e.g., "FRAMverse/framrsquared". Character atomic}
+\item{repo_address}{Repository name including user or organization prefix, e.g., "FRAMverse/framrsquared". Character atomic}
 
 \item{default_branch}{Name of the default/primary repository. Character atomic, defaults to "main". Older repositories often use "master" as the default repo name.}
 }

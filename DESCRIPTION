@@ -15,6 +15,7 @@ Suggests:
     callr,
     framrsquared,
     knitr,
+    fs,
     rmarkdown,
     spelling,
     withr,
@@ -27,7 +28,6 @@ Imports:
     codetools,
     curl,
     dplyr,
-    fs,
     gh,
     glue,
     httr2,
@@ -37,7 +37,6 @@ Imports:
     stringr,
     tibble,
     tidyr,
-    validatr,
     visNetwork,
     yaml
 VignetteBuilder: knitr

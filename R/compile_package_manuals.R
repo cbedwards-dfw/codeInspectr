@@ -68,7 +68,10 @@ compile_package_manuals <- function(output_path,
       cli::cli_h1("Building manual for {short_name} (Repo {i}/{length(r_repos)})")
     }
 
-    build_package_manual(full_name = cur_repo, output_path = output_path, verbose = verbose)
+    build_package_manual(repo_address = cur_repo,
+                         output_path = output_path,
+                         build_vignettes = build_vignettes,
+                         verbose = verbose)
 
   }
 
@@ -84,7 +87,8 @@ compile_package_manuals <- function(output_path,
 #' compiles document(s), then deletes repository.
 #'
 #' @inheritParams compile_package_manuals
-#' @param full_name Github repository "full name" of form `{user}/{repository}`, as in `"FRAMverse/framrsquared"`. Character atomic.
+#' @param repo_address Github repository "full name" of form `{user}/{repository}`, as in `"FRAMverse/framrsquared"`.
+#' Also accepts full url (e.g., `"https://github.com/FRAMverse/framrsquared/`) Character atomic.
 #'
 #' @returns Nothing
 #' @export
@@ -95,7 +99,7 @@ compile_package_manuals <- function(output_path,
 #'   output_path = "C:/Repos/test_manuals",
 #'   build_vignettes = TRUE)
 #' }
-build_package_manual <- function(full_name,
+build_package_manual <- function(repo_address,
                                  output_path,
                                  build_vignettes = FALSE,
                                  verbose = TRUE) {
@@ -110,10 +114,15 @@ build_package_manual <- function(full_name,
     cli::cli_abort("No LaTeX installation found. Consider running {.code tinytex::install_tinytex()} to install minimal version.")
   }
 
+  repo_address = github_to_repo_address(repo_address)
+  validate_filepath(output_path, n = 1)
+  validate_flag(build_vignettes)
+
+
   dest_dir <- fs::file_temp("manual_build_")
   fs::dir_create(dest_dir)
 
-  short_name <- sub(".*/", "", full_name)
+  short_name <- sub(".*/", "", repo_address)
   repo_dir <- file.path(dest_dir, short_name)
 
   # Always attempt cleanup when this directory exists
@@ -128,7 +137,7 @@ build_package_manual <- function(full_name,
   }
 
   usethis::create_from_github(
-    full_name,
+    repo_address,
     destdir = dest_dir,
     rstudio = FALSE,
     open = FALSE
@@ -153,7 +162,7 @@ build_package_manual <- function(full_name,
   )
 
   if(build_vignettes){
-    build_vignettes(full_name = full_name,
+    compile_vignettes(repo_address = repo_address,
                     repo_dir = repo_dir,
                     output_path = output_path,
                     verbose = verbose)
@@ -215,12 +224,12 @@ safe_dir_delete <- function(path, attempts = 5, wait_seconds = 0.3) {
 #'
 #' @returns Character vector of vignette filepaths (if successful and vignettes exist) or empty character string
 #'
-build_vignettes <- function(full_name, repo_dir, output_path, verbose) {
+compile_vignettes <- function(repo_address, repo_dir, output_path, verbose) {
 
   rlang::check_installed("fs")
   rlang::check_installed("callr")
 
-  short_name <- sub(".*/", "", full_name)
+  short_name <- sub(".*/", "", repo_address)
   vignette_dir <- file.path(repo_dir, "vignettes")
 
   if (!fs::dir_exists(vignette_dir)) {

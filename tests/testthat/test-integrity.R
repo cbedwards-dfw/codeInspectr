@@ -26,3 +26,25 @@ test_that("validate_filepath works, handles multiple entries", {
 
 
 })
+
+test_that("github_to_repo_address validates inputs", {
+
+  expect_error(github_to_repo_address(2))
+  expect_error(github_to_repo_address(letters[1:3]))
+
+  #nonexistent repo
+  expect_error(github_to_repo_address("FRAMverse/doesnotexist"))
+
+  # works for real repo, correct inputs:
+  expect_no_error(github_to_repo_address("FRAMverse/framrsquared"))
+})
+
+
+test_that("github_to_repo_address works correctly, trims urls", {
+  expect_equal("FRAMverse/framrsquared",
+               github_to_repo_address("FRAMverse/framrsquared"))
+  expect_equal("FRAMverse/framrsquared",
+               github_to_repo_address("https://github.com/FRAMverse/framrsquared/"))
+  expect_equal("FRAMverse/framrsquared",
+               github_to_repo_address("www.github.com/FRAMverse/framrsquared/"))
+})

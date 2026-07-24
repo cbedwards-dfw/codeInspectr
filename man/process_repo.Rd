@@ -4,12 +4,12 @@
 \alias{process_repo}
 \title{Helper function to download issues/pulls of single repo}
 \usage{
-process_repo(repo_name, full_name, save_location)
+process_repo(repo_name, repo_address, save_location)
 }
 \arguments{
 \item{repo_name}{Name of repository (e.g. "codeInspectr")}
 
-\item{full_name}{Full github name (e.g., "FRAMverse/codeInspectr")}
+\item{repo_address}{Full github name (e.g., "FRAMverse/codeInspectr")}
 
 \item{save_location}{Filepath for directory to save issue and pulls to.}
 }
