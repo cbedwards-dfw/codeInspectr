@@ -7,7 +7,8 @@
 list_repos(
   name,
   entity_type = c("user", "org"),
-  repo_type = c("all", "public", "private", "forks")
+  repo_type = c("all", "public", "private", "forks"),
+  r_package_status = FALSE
 )
 }
 \arguments{
@@ -16,6 +17,8 @@ list_repos(
 \item{entity_type}{Is this a Github User ("user") or organization ("org")? Character atomic, defaults to "user".}
 
 \item{repo_type}{List "all" repos, "public" repos, "private" repos, or only "fork" repos? Character atomic, defaults to "all". Private repos will only be provided if you have access to the private repos of that user or org.}
+
+\item{r_package_status}{Check if each repository is an R package. Increases runtime considerably (e.g., ~1 sec per repo). Logical, defaults to FALSE}
 }
 \value{
 Data frame of repositories with columns
@@ -26,6 +29,8 @@ Data frame of repositories with columns
 \item \verb{$description}: description listed for the repository.
 \item \verb{$stars}: number of followers of the repository
 \item \verb{$language}: programming language(s) of the repository.
+\item \verb{$default_branch}: the name of the default branch (e.g., "main").
+\item \verb{$r_package}: is the repository an R package? Logical, only present for optional argument \code{r_package_status = TRUE}.
 }
 }
 \description{

@@ -8,7 +8,7 @@ summarize_repository(repo_address, max_char = 70, is_package = TRUE)
 }
 \arguments{
 \item{repo_address}{Github repository address for an R package, of the form "user/repository",
-as in \code{"FRAMverse/framrsquared"}}
+as in \code{"FRAMverse/framrsquared"}. Also accepts full URL, as in \code{"https://github.com/FRAMverse/framrsquared/"}}
 
 \item{max_char}{Maximum number of characters to return in the "body" column.}
 

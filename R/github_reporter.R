@@ -16,6 +16,8 @@
 #' get_branch_activity("tidyverse/dplyr")
 get_branch_activity <- function(repo_address){
 
+  repo_address <- github_to_repo_address(repo_address)
+
   owner = gsub("/.*", "", repo_address)
   name = gsub(".*/", "", repo_address)
 
@@ -61,6 +63,8 @@ get_branch_activity <- function(repo_address){
 #' get_pull_requests("FRAMverse/framrsquared")
 #' get_pull_requests("tidyverse/dplyr")
 get_pull_requests <- function(repo_address, max_char = 97) {
+
+  repo_address <- github_to_repo_address(repo_address)
 
   owner = gsub("/.*", "", repo_address)
   name = gsub(".*/", "", repo_address)
@@ -159,6 +163,8 @@ get_pull_requests <- function(repo_address, max_char = 97) {
 #' get_issues("tidyverse/dplyr")
 get_issues <- function(repo_address, max_char = 97) {
 
+  repo_address <- github_to_repo_address(repo_address)
+  github_to_repo_address
   owner = gsub("/.*", "", repo_address)
   name = gsub(".*/", "", repo_address)
 
@@ -280,9 +286,8 @@ get_noncran_dependencies <- function(repo_address){
 #' Summarize information about a github R package
 #'
 #'
-#'
 #' @param repo_address Github repository address for an R package, of the form "user/repository",
-#' as in `"FRAMverse/framrsquared"`
+#' as in `"FRAMverse/framrsquared"`. Also accepts full URL, as in `"https://github.com/FRAMverse/framrsquared/"`
 #' @param is_package Is this repository an R package? If not, don't try to pull information from the DESCRIPTION file. Logical, defaults to TRUE.
 #' @inheritParams get_pull_requests
 #'
@@ -295,7 +300,7 @@ get_noncran_dependencies <- function(repo_address){
 #' summarize_repository("FRAMverse/framrsquared")
 #' summarize_repository("cbedwards-dfw/xldiff")
 summarize_repository <- function(repo_address, max_char = 70, is_package = TRUE){
-  validate_repository(repo_address)
+  repo_address <- github_to_repo_address(repo_address)
   ## updates
   branch_activity <- get_branch_activity(repo_address = repo_address)
 

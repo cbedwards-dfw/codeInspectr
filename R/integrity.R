@@ -86,6 +86,9 @@ validate_integer <- function(x, n = NULL, ..., arg = rlang::caller_arg(x), call 
 }
 
 validate_repository <- function(x, ..., arg = rlang::caller_arg(x), call = rlang::caller_env()){
+
+  validate_character(x, n = 1)
+
   suppressWarnings(try(
     test_val <- system(paste0("git ls-remote https://github.com/", x),
                        intern = TRUE, ignore.stderr = TRUE
@@ -94,4 +97,17 @@ validate_repository <- function(x, ..., arg = rlang::caller_arg(x), call = rlang
   if(!is.null(attr(test_val, "status"))){
     cli::cli_abort("{.arg {arg}} must be a valid public repository address. For example, 'FRAMverse/framrsquared' or 'tidyverse/dplyr'. {.arg {x}} is not a valid repository; {.href https://github.com/{x} } does not exist")
   }
+}
+
+github_to_repo_address <- function(x, allow_null = FALSE, arg = rlang::caller_arg(x), call = rlang::caller_env()){
+
+  if(allow_null && is.null(x)){ return(invisible(NULL)) }
+
+  validate_character(x, n = 1, arg = arg, call = call)
+  x = gsub(".*github[.]com[/]", "", x)
+  x = gsub("[/]$", "", x)
+
+  validate_repository(x, arg = arg, call = call)
+
+  return(x)
 }

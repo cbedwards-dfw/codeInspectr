@@ -43,7 +43,7 @@ backup_github_info <- function(name, save_location, entity_type = c("user", "org
     dplyr::select(repo_name = "name",
                   "full_name") |>
     dplyr::mutate(result = purrr::pmap(.l = list(repo_name = .data$repo_name,
-                                                 full_name = .data$full_name),
+                                                 repo_address = .data$full_name),
                                        .f = process_repo,
                                                       save_location = .env$save_location)) |>
     tidyr::unnest(.data$result)
@@ -76,12 +76,12 @@ backup_github_info <- function(name, save_location, entity_type = c("user", "org
 #' Intended for use in purr workflow in [backup_github_info()].
 #'
 #' @param repo_name Name of repository (e.g. "codeInspectr")
-#' @param full_name Full github name (e.g., "FRAMverse/codeInspectr")
+#' @param repo_address Full github name (e.g., "FRAMverse/codeInspectr")
 #' @inheritParams backup_github_info
 #'
 #' @returns Tibble with filepaths and success/failure info.
 #'
-process_repo <- function(repo_name, full_name, save_location) {
+process_repo <- function(repo_name, repo_address, save_location) {
 
   ## to avoid running afoul of Github rate limites
   Sys.sleep(0.5)
@@ -93,8 +93,8 @@ process_repo <- function(repo_name, full_name, save_location) {
   safe_get_issues <- purrr::safely(get_raw_issues)
   safe_get_pulls  <- purrr::safely(get_raw_pulls)
 
-  issues_res <- safe_get_issues(full_name = full_name)
-  pulls_res  <- safe_get_pulls(full_name = full_name)
+  issues_res <- safe_get_issues(repo_address = repo_address)
+  pulls_res  <- safe_get_pulls(repo_address = repo_address)
 
   # Only write to disk if the fetch succeeded
   if (is.null(issues_res$error)) {

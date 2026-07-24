@@ -148,8 +148,10 @@ find_reverse_dependencies("framrsquared", "fetch_table_")
 We would need to check that all of those functions still worked.
 
 
-# Downloading Pull Requests and Issues
+# Backing up information from Github
 
 If you lose access to a github repository, you lose access to the Issues and Pull Requests as well. You may be able to recreate the repository from your local version, but not the Issues and Pull requests. 
 
 `backup_github_info()` can be used to save Issues and PRs locally for all repositories of a given user or organization. Using this function regularly to maintain a backup of these key tools.
+
+It may also be useful to have local versions of documentation and vignettes. `compile_package_manuals()` will create pdf manuals (and optionally vignettes) for all R packages of a given user or organization. 
