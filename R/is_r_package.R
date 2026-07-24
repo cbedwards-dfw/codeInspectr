@@ -7,10 +7,14 @@
 #' @param full_name Repository name including user or organization prefix, e.g., "FRAMverse/framrsquared". Character atomic
 #' @param default_branch Name of the default/primary repository. Character atomic, defaults to "main". Older repositories often use "master" as the default repo name.
 #'
-#' @returns
+#' @returns Logical: `TRUE` if the repo is an R package, `FALSE` if it is not.
 #' @export
 #'
 #' @examples
+#' # framrsquared is an R package
+#' is_r_package("FRAMverse/framrsquared")
+#' # the snippets repository is not.
+#' is_r_package("FRAMverse/snippets")
 is_r_package <- function(full_name, default_branch = "main") {
 
   validate_repository(full_name)

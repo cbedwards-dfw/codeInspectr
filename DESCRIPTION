@@ -12,14 +12,17 @@ RoxygenNote: 7.3.2
 URL: https://github.com/cbedwards-dfw/codeInspectr, https://cbedwards-dfw.github.io/codeInspectr/
 BugReports: https://github.com/cbedwards-dfw/codeInspectr/issues
 Suggests: 
+    callr,
     framrsquared,
     knitr,
     rmarkdown,
     spelling,
-    testthat (>= 3.0.0)
+    withr,
+    testthat (>= 3.0.0),
+    devtools,
+    usethis
 Language: en-US
 Imports: 
-    callr,
     cli,
     codetools,
     curl,
@@ -27,7 +30,7 @@ Imports:
     fs,
     gh,
     glue,
-    httr,
+    httr2,
     jsonlite,
     purrr,
     rlang,
@@ -36,7 +39,6 @@ Imports:
     tidyr,
     validatr,
     visNetwork,
-    withr,
     yaml
 VignetteBuilder: knitr
 Remotes: 

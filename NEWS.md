@@ -1,5 +1,9 @@
 # codeInspectr 0.0.0.9000 (development version)
 
+* Added suite of tools for creating PDF versions of package documentation and vignettes. Primary function
+for users is `compile_package_manuals()` (to compile documentation / vignettes for all Github-based R packages stored under a specific user or organization)
+or `build_package_manual()` (to build documentation for a single R package accessible as a Github repository). Additional package dependencies
+for this process have been added as "Suggests" to avoid bloating required packages for a single task.
 * Added `backup_github_info()` to download Issues and Pull Requests to local jsons.
 * added better input validation
 * addition of basic functions. Key ones: `plot_function_dependencies()` and `find_reverse_dependencies()`

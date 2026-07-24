@@ -8,9 +8,11 @@ Tibble
 cbedwards
 cran
 deps
+devtools
 dfw
 filepath
 fram
+framrsquared
 gh
 github
 json
