@@ -285,10 +285,11 @@ get_noncran_dependencies <- function(repo_address){
 
 #' Summarize information about a github R package
 #'
+#' Primarily designed to pull information from R packages, but also works for other repositories.
+#'
 #'
 #' @param repo_address Github repository address for an R package, of the form "user/repository",
 #' as in `"FRAMverse/framrsquared"`. Also accepts full URL, as in `"https://github.com/FRAMverse/framrsquared/"`
-#' @param is_package Is this repository an R package? If not, don't try to pull information from the DESCRIPTION file. Logical, defaults to TRUE.
 #' @inheritParams get_pull_requests
 #'
 #' @return List summarizing github repository information.
@@ -299,7 +300,7 @@ get_noncran_dependencies <- function(repo_address){
 #' @examples
 #' summarize_repository("FRAMverse/framrsquared")
 #' summarize_repository("cbedwards-dfw/xldiff")
-summarize_repository <- function(repo_address, max_char = 70, is_package = TRUE){
+summarize_repository <- function(repo_address, max_char = 70){
   repo_address <- github_to_repo_address(repo_address)
   ## updates
   branch_activity <- get_branch_activity(repo_address = repo_address)
@@ -315,20 +316,37 @@ summarize_repository <- function(repo_address, max_char = 70, is_package = TRUE)
 
   ## dependencies
   description_url = glue::glue("https://raw.githubusercontent.com/{repo_address}/main/DESCRIPTION")
-  description_raw <- readLines(curl::curl(description_url))
-  ## skip the "Description: line, as it sometimes contains
-  ## special characters that read_yaml doesn't like
-  repo_long_summary <-grep("^Description:",
-                           x = description_raw,
-                           value = TRUE)
-  repo_long_summary <- gsub("^Description:[ ]*",
-                            "",
-                            repo_long_summary)
-  description_raw <- grep("^Description:",
-                          x = description_raw,
-                          value = TRUE, invert = TRUE)
-  desc_yaml <- yaml::read_yaml(text = description_raw)
-  framverse_dependencies <- desc_yaml$Remotes
+
+  description_raw <- tryCatch(
+    suppressWarnings(readLines(curl::curl(description_url))),
+    error = function(e){NULL}
+  )
+
+  if(!is.null(description_raw)){
+
+    ## skip the "Description: line, as it sometimes contains
+    ## special characters that read_yaml doesn't like
+    repo_long_summary <-grep("^Description:",
+                             x = description_raw,
+                             value = TRUE)
+    repo_long_summary <- gsub("^Description:[ ]*",
+                              "",
+                              repo_long_summary)
+
+    ## if first like starts with "Package:", is likely an R package
+    r_package = grepl("^Package:", description_raw[1])
+
+    description_raw <- grep("^Description:",
+                            x = description_raw,
+                            value = TRUE, invert = TRUE)
+    desc_yaml <- yaml::read_yaml(text = description_raw)
+    framverse_dependencies <- desc_yaml$Remotes
+
+
+  } else {
+    repo_long_summary = desc_yaml = framverse_dependencies = NA
+    r_package = FALSE
+  }
 
   return(list(repo = basename(repo_address),
               repo_address = repo_address,
@@ -337,6 +355,7 @@ summarize_repository <- function(repo_address, max_char = 70, is_package = TRUE)
               branch_activity = branch_activity,
               issues = issues,
               pull_requests = pull_requests,
-              github_dependencies = framverse_dependencies))
+              github_dependencies = framverse_dependencies,
+              r_package = r_package))
 }
 
