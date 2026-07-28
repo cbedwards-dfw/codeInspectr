@@ -4,21 +4,19 @@
 \alias{summarize_repository}
 \title{Summarize information about a github R package}
 \usage{
-summarize_repository(repo_address, max_char = 70, is_package = TRUE)
+summarize_repository(repo_address, max_char = 70)
 }
 \arguments{
 \item{repo_address}{Github repository address for an R package, of the form "user/repository",
 as in \code{"FRAMverse/framrsquared"}. Also accepts full URL, as in \code{"https://github.com/FRAMverse/framrsquared/"}}
 
 \item{max_char}{Maximum number of characters to return in the "body" column.}
-
-\item{is_package}{Is this repository an R package? If not, don't try to pull information from the DESCRIPTION file. Logical, defaults to TRUE.}
 }
 \value{
 List summarizing github repository information.
 }
 \description{
-Summarize information about a github R package
+Primarily designed to pull information from R packages, but also works for other repositories.
 }
 \examples{
 summarize_repository("FRAMverse/framrsquared")
