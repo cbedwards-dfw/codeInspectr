@@ -49,28 +49,31 @@ get_pull_requests("FRAMverse/framrsquared")
 #> 5 2025-01-07  https://github.com/FRAMverse/framrsquared/pull/69
 #> 6 2024-11-04  https://github.com/FRAMverse/framrsquared/pull/43
 get_pull_requests("tidyverse/dplyr")
-#>                                                       title
-#> 1                                          Update copy-to.R
-#> 2         Fix #7773 and #7785: Improve count() and across()
-#> 3                            Use dev roxygen2 + doc listing
-#> 4 add examples for `if_any()`/`if_all()` to `filter()` docs
-#> 5               Add ellipsis to `tally()` and `add_tally()`
-#> 6                     Prototype of webr on the landing page
-#> 7 chore: update readme to use `.by` instead of `group_by()`
+#>                                                                                    title
+#> 1 Enhance README documentation with comprehensive examples and improved user guidance.md
+#> 2                                                                       Update copy-to.R
+#> 3                                      Fix #7773 and #7785: Improve count() and across()
+#> 4                                                         Use dev roxygen2 + doc listing
+#> 5                              add examples for `if_any()`/`if_all()` to `filter()` docs
+#> 6                                            Add ellipsis to `tally()` and `add_tally()`
+#> 7                                                  Prototype of webr on the landing page
+#> 8                              chore: update readme to use `.by` instead of `group_by()`
 #>                                                                                                         body
-#> 1 Fix issue where copy argument in join can be anything and code will run.\r\n\r\nlibrary(tidyverse)\r\ns...
-#> 2                                                                                                           
-#> 3     * Re-run with dev roxygen2 (lots of diffs due to consist link generation)\r\n* Switch to using `doc...
-#> 4                                                                                              Closes #7816 
-#> 5      - [x] Revert to original state to address reviewer feedback\n- [x] Move dots checking from method ...
-#> 6     - [ ] Could we add some kind of Plausible integration?\r\n- [ ] Fonts are hardcoded to `font-family...
-#> 7       Please feel free to reject this if you prefer to keep as-is. Just thought the upcoming release mi...
+#> 1     ## Summary\r\nThis PR enhances the dplyr README documentation with comprehensive examples, improved...
+#> 2 Fix issue where copy argument in join can be anything and code will run.\r\n\r\nlibrary(tidyverse)\r\ns...
+#> 3                                                                                                           
+#> 4     * Re-run with dev roxygen2 (lots of diffs due to consist link generation)\r\n* Switch to using `doc...
+#> 5                                                                                              Closes #7816 
+#> 6      - [x] Revert to original state to address reviewer feedback\n- [x] Move dots checking from method ...
+#> 7     - [ ] Could we add some kind of Plausible integration?\r\n- [ ] Fonts are hardcoded to `font-family...
+#> 8       Please feel free to reject this if you prefer to keep as-is. Just thought the upcoming release mi...
 #>         date                                         link
-#> 1 2026-06-25 https://github.com/tidyverse/dplyr/pull/7847
-#> 2 2026-05-13 https://github.com/tidyverse/dplyr/pull/7835
-#> 3 2026-04-06 https://github.com/tidyverse/dplyr/pull/7829
-#> 4 2026-03-09 https://github.com/tidyverse/dplyr/pull/7817
-#> 5 2026-02-21 https://github.com/tidyverse/dplyr/pull/7813
-#> 6 2026-02-09 https://github.com/tidyverse/dplyr/pull/7807
-#> 7 2026-02-04 https://github.com/tidyverse/dplyr/pull/7803
+#> 1 2026-07-25 https://github.com/tidyverse/dplyr/pull/7850
+#> 2 2026-06-25 https://github.com/tidyverse/dplyr/pull/7847
+#> 3 2026-05-13 https://github.com/tidyverse/dplyr/pull/7835
+#> 4 2026-04-06 https://github.com/tidyverse/dplyr/pull/7829
+#> 5 2026-03-09 https://github.com/tidyverse/dplyr/pull/7817
+#> 6 2026-02-21 https://github.com/tidyverse/dplyr/pull/7813
+#> 7 2026-02-09 https://github.com/tidyverse/dplyr/pull/7807
+#> 8 2026-02-04 https://github.com/tidyverse/dplyr/pull/7803
 ```

@@ -268,6 +268,9 @@ summarize_repository("FRAMverse/framrsquared")
     ## 
     ## $github_dependencies
     ## [1] "FRAMverse/framrosetta"
+    ## 
+    ## $r_package
+    ## [1] TRUE
 
 ``` r
 
@@ -629,33 +632,39 @@ summarize_repository("tidyverse/dplyr")
     ## 81 2018-12-17 https://github.com/tidyverse/dplyr/issues/4028
     ## 
     ## $pull_requests
-    ##                                                       title
-    ## 1                                          Update copy-to.R
-    ## 2         Fix #7773 and #7785: Improve count() and across()
-    ## 3                            Use dev roxygen2 + doc listing
-    ## 4 add examples for `if_any()`/`if_all()` to `filter()` docs
-    ## 5               Add ellipsis to `tally()` and `add_tally()`
-    ## 6                     Prototype of webr on the landing page
-    ## 7 chore: update readme to use `.by` instead of `group_by()`
+    ##                                                                                    title
+    ## 1 Enhance README documentation with comprehensive examples and improved user guidance.md
+    ## 2                                                                       Update copy-to.R
+    ## 3                                      Fix #7773 and #7785: Improve count() and across()
+    ## 4                                                         Use dev roxygen2 + doc listing
+    ## 5                              add examples for `if_any()`/`if_all()` to `filter()` docs
+    ## 6                                            Add ellipsis to `tally()` and `add_tally()`
+    ## 7                                                  Prototype of webr on the landing page
+    ## 8                              chore: update readme to use `.by` instead of `group_by()`
     ##                                                                          body
-    ## 1   Fix issue where copy argument in join can be anything and code will ru...
-    ## 2                                                                            
-    ## 3   * Re-run with dev roxygen2 (lots of diffs due to consist link generati...
-    ## 4                                                               Closes #7816 
-    ## 5  - [x] Revert to original state to address reviewer feedback\n- [x] Move...
-    ## 6 - [ ] Could we add some kind of Plausible integration?\r\n- [ ] Fonts ar...
-    ## 7   Please feel free to reject this if you prefer to keep as-is. Just thou...
+    ## 1 ## Summary\r\nThis PR enhances the dplyr README documentation with compr...
+    ## 2   Fix issue where copy argument in join can be anything and code will ru...
+    ## 3                                                                            
+    ## 4   * Re-run with dev roxygen2 (lots of diffs due to consist link generati...
+    ## 5                                                               Closes #7816 
+    ## 6  - [x] Revert to original state to address reviewer feedback\n- [x] Move...
+    ## 7 - [ ] Could we add some kind of Plausible integration?\r\n- [ ] Fonts ar...
+    ## 8   Please feel free to reject this if you prefer to keep as-is. Just thou...
     ##         date                                         link
-    ## 1 2026-06-25 https://github.com/tidyverse/dplyr/pull/7847
-    ## 2 2026-05-13 https://github.com/tidyverse/dplyr/pull/7835
-    ## 3 2026-04-06 https://github.com/tidyverse/dplyr/pull/7829
-    ## 4 2026-03-09 https://github.com/tidyverse/dplyr/pull/7817
-    ## 5 2026-02-21 https://github.com/tidyverse/dplyr/pull/7813
-    ## 6 2026-02-09 https://github.com/tidyverse/dplyr/pull/7807
-    ## 7 2026-02-04 https://github.com/tidyverse/dplyr/pull/7803
+    ## 1 2026-07-25 https://github.com/tidyverse/dplyr/pull/7850
+    ## 2 2026-06-25 https://github.com/tidyverse/dplyr/pull/7847
+    ## 3 2026-05-13 https://github.com/tidyverse/dplyr/pull/7835
+    ## 4 2026-04-06 https://github.com/tidyverse/dplyr/pull/7829
+    ## 5 2026-03-09 https://github.com/tidyverse/dplyr/pull/7817
+    ## 6 2026-02-21 https://github.com/tidyverse/dplyr/pull/7813
+    ## 7 2026-02-09 https://github.com/tidyverse/dplyr/pull/7807
+    ## 8 2026-02-04 https://github.com/tidyverse/dplyr/pull/7803
     ## 
     ## $github_dependencies
     ## NULL
+    ## 
+    ## $r_package
+    ## [1] FALSE
 
 [`summarize_repository()`](https://cbedwards-dfw.github.io/codeInspectr/reference/summarize_repository.md)
 uses
@@ -839,8 +848,9 @@ find_function_dependencies("codeInspectr", fun = "summarize_repository", include
 
     ##  [1] "basename"               "get_branch_activity"    "get_issues"            
     ##  [4] "get_pull_requests"      "github_to_repo_address" "grep"                  
-    ##  [7] "gsub"                   "list"                   "readLines"             
-    ## [10] "return"
+    ##  [7] "grepl"                  "gsub"                   "if"                    
+    ## [10] "is.null"                "list"                   "readLines"             
+    ## [13] "return"                 "suppressWarnings"       "tryCatch"
 
 while `include = "all"` will also list operators:
 
@@ -849,11 +859,14 @@ while `include = "all"` will also list operators:
 find_function_dependencies("codeInspectr", fun = "summarize_repository", include = "all")
 ```
 
-    ##  [1] "::"                     "{"                      "<-"                    
-    ##  [4] "="                      "$"                      "basename"              
-    ##  [7] "get_branch_activity"    "get_issues"             "get_pull_requests"     
-    ## [10] "github_to_repo_address" "grep"                   "gsub"                  
-    ## [13] "list"                   "readLines"              "return"
+    ##  [1] "::"                     "!"                      "["                     
+    ##  [4] "{"                      "<-"                     "="                     
+    ##  [7] "$"                      "basename"               "get_branch_activity"   
+    ## [10] "get_issues"             "get_pull_requests"      "github_to_repo_address"
+    ## [13] "grep"                   "grepl"                  "gsub"                  
+    ## [16] "if"                     "is.null"                "list"                  
+    ## [19] "readLines"              "return"                 "suppressWarnings"      
+    ## [22] "tryCatch"
 
 We can also work the other direction: what functions in the package
 depend on a focal function? For this we use
