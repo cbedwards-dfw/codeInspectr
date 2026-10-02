@@ -1,5 +1,6 @@
 # codeInspectr 0.0.0.9000 (development version)
 
+* added `summarize_github_activity()` to track the # of repos created, pull requests made, and issues resolved for all repos in a span of time. 
 * updated all functions that previously required a "repo address" (e.g., "FRAMverse/framrsquared") to also work with the full
 github repository URL (e.g., "https://github.com/FRAMverse/framrsquared/"). Should help avoid confusion, simplify user experience.
 * Added suite of tools for creating PDF versions of package documentation and vignettes. Primary function
