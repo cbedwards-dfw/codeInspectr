@@ -111,3 +111,21 @@ github_to_repo_address <- function(x, allow_null = FALSE, arg = rlang::caller_ar
 
   return(x)
 }
+
+## accepts a Date or a "YYYY-MM-DD" string; returns a Date
+validate_date <- function(x, ..., arg = rlang::caller_arg(x), call = rlang::caller_env()) {
+  if (length(x) != 1) {
+    cli::cli_abort("{.arg {arg}} must be a single date, not length {.val {length(x)}}.", ..., call = call)
+  }
+  if (inherits(x, "Date")) {
+    out <- x
+  } else if (is.character(x)) {
+    out <- as.Date(x, format = "%Y-%m-%d", optional = TRUE)
+  } else {
+    out <- NA
+  }
+  if (is.na(out)) {
+    cli::cli_abort("{.arg {arg}} must be a Date or a character string like {.val 2026-01-31}, not {.val {format(x)}}.", ..., call = call)
+  }
+  out
+}

@@ -48,3 +48,11 @@ test_that("github_to_repo_address works correctly, trims urls", {
   expect_equal("FRAMverse/framrsquared",
                github_to_repo_address("www.github.com/FRAMverse/framrsquared/"))
 })
+
+test_that("validate_date accepts dates and ISO strings only", {
+  expect_equal(validate_date("2026-01-31"), as.Date("2026-01-31"))
+  expect_equal(validate_date(as.Date("2026-01-31")), as.Date("2026-01-31"))
+  expect_error(validate_date("01/31/2026"))
+  expect_error(validate_date(20260131))
+  expect_error(validate_date(c("2026-01-01", "2026-01-02")))
+})

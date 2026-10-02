@@ -20,5 +20,10 @@ Useful links:
 \author{
 \strong{Maintainer}: Collin Edwards \email{Collin.Edwards@dfw.wa.gov} (\href{https://orcid.org/0000-0002-4937-5159}{ORCID})
 
+Authors:
+\itemize{
+  \item Collin Edwards \email{Collin.Edwards@dfw.wa.gov} (\href{https://orcid.org/0000-0002-4937-5159}{ORCID})
+}
+
 }
 \keyword{internal}
