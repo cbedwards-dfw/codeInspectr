@@ -14,6 +14,8 @@ get_new_repos(owner, since, until = Sys.Date(), include_forks = TRUE)
 
 \item{until}{End of the reporting window (inclusive). Date, or character in
 "YYYY-MM-DD" form. Optional, Defaults to today.}
+
+\item{include_forks}{Should forks count as new repos? Logical, defaults to TRUE.}
 }
 \value{
 Tibble with \verb{$owner}, \verb{$repo} (e.g. "FRAMverse/framrsquared"),

@@ -185,6 +185,7 @@ get_github_activity <- function(owner, since, until = Sys.Date(), author = NULL)
 #' uses the Github search API (which returns any repository your token can see).
 #'
 #' @inheritParams get_github_activity
+#' @param include_forks Should forks count as new repos? Logical, defaults to TRUE.
 #'
 #' @returns Tibble with `$owner`, `$repo` (e.g. "FRAMverse/framrsquared"),
 #'   `$description`, `$private`, `$fork`, `$created` (date), and `$link`.
