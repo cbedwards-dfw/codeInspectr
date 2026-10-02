@@ -18,3 +18,8 @@ Useful links:
 
 **Maintainer**: Collin Edwards <Collin.Edwards@dfw.wa.gov>
 ([ORCID](https://orcid.org/0000-0002-4937-5159))
+
+Authors:
+
+- Collin Edwards <Collin.Edwards@dfw.wa.gov>
+  ([ORCID](https://orcid.org/0000-0002-4937-5159))

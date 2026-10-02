@@ -2,6 +2,10 @@
 
 ## codeInspectr 0.0.0.9000 (development version)
 
+- added
+  [`summarize_github_activity()`](https://cbedwards-dfw.github.io/codeInspectr/reference/summarize_github_activity.md)
+  to track the \# of repos created, pull requests made, and issues
+  resolved for all repos in a span of time.
 - updated all functions that previously required a “repo address” (e.g.,
   “FRAMverse/framrsquared”) to also work with the full github repository
   URL (e.g., “<https://github.com/FRAMverse/framrsquared/>”). Should

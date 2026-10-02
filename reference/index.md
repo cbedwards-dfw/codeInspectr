@@ -36,8 +36,16 @@
   : Return active branches and the most recent updates of github
   repository
 
+- [`get_github_activity()`](https://cbedwards-dfw.github.io/codeInspectr/reference/get_github_activity.md)
+  : List issues closed and pull requests opened or merged for a user or
+  organization
+
 - [`get_issues()`](https://cbedwards-dfw.github.io/codeInspectr/reference/get_issues.md)
   : Return summary of open Github Issues
+
+- [`get_new_repos()`](https://cbedwards-dfw.github.io/codeInspectr/reference/get_new_repos.md)
+  : List repositories created by a user or organization within a date
+  window
 
 - [`get_pull_requests()`](https://cbedwards-dfw.github.io/codeInspectr/reference/get_pull_requests.md)
   : Return summary of open Github Pull Requests
@@ -68,6 +76,10 @@
 
 - [`safe_dir_delete()`](https://cbedwards-dfw.github.io/codeInspectr/reference/safe_dir_delete.md)
   : Delete a directory, retrying on transient Windows file locks
+
+- [`summarize_github_activity()`](https://cbedwards-dfw.github.io/codeInspectr/reference/summarize_github_activity.md)
+  : Summarize Github activity across all repositories of users or
+  organizations
 
 - [`summarize_repository()`](https://cbedwards-dfw.github.io/codeInspectr/reference/summarize_repository.md)
   : Summarize information about a github R package

@@ -29,57 +29,59 @@ of most recent commit)
 ``` r
 get_branch_activity("FRAMverse/framrsquared")
 #>                            branch most_recent_update
-#> 1                    adding_tests         2026-06-09
-#> 2                             dev         2026-04-27
-#> 3                            main         2026-04-09
-#> 4           cbedwards-dfw-patch-1         2026-04-08
-#> 5             clean_up_formatting         2026-03-18
-#> 6              remove_heatmap_cnr         2026-03-17
-#> 7                     heatmap_fix         2026-03-13
-#> 8          add_soncc_calculations         2026-02-21
-#> 9                 add/nr/checking         2025-11-24
-#> 10           improve/modify/table         2025-10-31
-#> 11                   nuke/fishery         2025-10-23
-#> 12                  add/copy_runs         2025-10-13
-#> 13                add/sensitivity         2025-10-07
-#> 14                    add/taaetrs         2025-09-05
-#> 15           add/stock_comp_graph         2025-05-14
-#> 16              add/fate_function         2025-04-23
-#> 17                   fix/run_info         2025-04-23
-#> 18       add/mortality/comparison         2025-04-21
-#> 19              refactor/compares         2025-04-21
-#> 20 update/filter/species/handling         2025-04-21
-#> 21               fix/compare/runs         2025-04-04
-#> 22          add/stock/proportions         2025-03-19
-#> 23           refactor/post_season         2025-01-02
-#> 24           update/documentation         2024-11-01
-#> 25                    minortweaks         2024-10-10
+#> 1                             dev         2026-09-22
+#> 2                            main         2026-09-17
+#> 3                   update_readme         2026-09-17
+#> 4         feat/bk_fram_automation         2026-07-30
+#> 5           cbedwards-dfw-patch-1         2026-04-08
+#> 6             clean_up_formatting         2026-03-18
+#> 7              remove_heatmap_cnr         2026-03-17
+#> 8                     heatmap_fix         2026-03-13
+#> 9          add_soncc_calculations         2026-02-21
+#> 10                add/nr/checking         2025-11-24
+#> 11           improve/modify/table         2025-10-31
+#> 12                   nuke/fishery         2025-10-23
+#> 13                  add/copy_runs         2025-10-13
+#> 14                add/sensitivity         2025-10-07
+#> 15                    add/taaetrs         2025-09-05
+#> 16           add/stock_comp_graph         2025-05-14
+#> 17              add/fate_function         2025-04-23
+#> 18                   fix/run_info         2025-04-23
+#> 19       add/mortality/comparison         2025-04-21
+#> 20              refactor/compares         2025-04-21
+#> 21 update/filter/species/handling         2025-04-21
+#> 22               fix/compare/runs         2025-04-04
+#> 23          add/stock/proportions         2025-03-19
+#> 24           refactor/post_season         2025-01-02
+#> 25           update/documentation         2024-11-01
+#> 26                    minortweaks         2024-10-10
 #>                                                                             link
-#> 1                    https://github.com/FRAMverse/framrsquared/tree/adding_tests
-#> 2                             https://github.com/FRAMverse/framrsquared/tree/dev
-#> 3                            https://github.com/FRAMverse/framrsquared/tree/main
-#> 4           https://github.com/FRAMverse/framrsquared/tree/cbedwards-dfw-patch-1
-#> 5             https://github.com/FRAMverse/framrsquared/tree/clean_up_formatting
-#> 6              https://github.com/FRAMverse/framrsquared/tree/remove_heatmap_cnr
-#> 7                     https://github.com/FRAMverse/framrsquared/tree/heatmap_fix
-#> 8          https://github.com/FRAMverse/framrsquared/tree/add_soncc_calculations
-#> 9                 https://github.com/FRAMverse/framrsquared/tree/add/nr/checking
-#> 10           https://github.com/FRAMverse/framrsquared/tree/improve/modify/table
-#> 11                   https://github.com/FRAMverse/framrsquared/tree/nuke/fishery
-#> 12                  https://github.com/FRAMverse/framrsquared/tree/add/copy_runs
-#> 13                https://github.com/FRAMverse/framrsquared/tree/add/sensitivity
-#> 14                    https://github.com/FRAMverse/framrsquared/tree/add/taaetrs
-#> 15           https://github.com/FRAMverse/framrsquared/tree/add/stock_comp_graph
-#> 16              https://github.com/FRAMverse/framrsquared/tree/add/fate_function
-#> 17                   https://github.com/FRAMverse/framrsquared/tree/fix/run_info
-#> 18       https://github.com/FRAMverse/framrsquared/tree/add/mortality/comparison
-#> 19              https://github.com/FRAMverse/framrsquared/tree/refactor/compares
-#> 20 https://github.com/FRAMverse/framrsquared/tree/update/filter/species/handling
-#> 21               https://github.com/FRAMverse/framrsquared/tree/fix/compare/runs
-#> 22          https://github.com/FRAMverse/framrsquared/tree/add/stock/proportions
-#> 23           https://github.com/FRAMverse/framrsquared/tree/refactor/post_season
-#> 24           https://github.com/FRAMverse/framrsquared/tree/update/documentation
-#> 25                    https://github.com/FRAMverse/framrsquared/tree/minortweaks
+#> 1                             https://github.com/FRAMverse/framrsquared/tree/dev
+#> 2                            https://github.com/FRAMverse/framrsquared/tree/main
+#> 3                   https://github.com/FRAMverse/framrsquared/tree/update_readme
+#> 4         https://github.com/FRAMverse/framrsquared/tree/feat/bk_fram_automation
+#> 5           https://github.com/FRAMverse/framrsquared/tree/cbedwards-dfw-patch-1
+#> 6             https://github.com/FRAMverse/framrsquared/tree/clean_up_formatting
+#> 7              https://github.com/FRAMverse/framrsquared/tree/remove_heatmap_cnr
+#> 8                     https://github.com/FRAMverse/framrsquared/tree/heatmap_fix
+#> 9          https://github.com/FRAMverse/framrsquared/tree/add_soncc_calculations
+#> 10                https://github.com/FRAMverse/framrsquared/tree/add/nr/checking
+#> 11           https://github.com/FRAMverse/framrsquared/tree/improve/modify/table
+#> 12                   https://github.com/FRAMverse/framrsquared/tree/nuke/fishery
+#> 13                  https://github.com/FRAMverse/framrsquared/tree/add/copy_runs
+#> 14                https://github.com/FRAMverse/framrsquared/tree/add/sensitivity
+#> 15                    https://github.com/FRAMverse/framrsquared/tree/add/taaetrs
+#> 16           https://github.com/FRAMverse/framrsquared/tree/add/stock_comp_graph
+#> 17              https://github.com/FRAMverse/framrsquared/tree/add/fate_function
+#> 18                   https://github.com/FRAMverse/framrsquared/tree/fix/run_info
+#> 19       https://github.com/FRAMverse/framrsquared/tree/add/mortality/comparison
+#> 20              https://github.com/FRAMverse/framrsquared/tree/refactor/compares
+#> 21 https://github.com/FRAMverse/framrsquared/tree/update/filter/species/handling
+#> 22               https://github.com/FRAMverse/framrsquared/tree/fix/compare/runs
+#> 23          https://github.com/FRAMverse/framrsquared/tree/add/stock/proportions
+#> 24           https://github.com/FRAMverse/framrsquared/tree/refactor/post_season
+#> 25           https://github.com/FRAMverse/framrsquared/tree/update/documentation
+#> 26                    https://github.com/FRAMverse/framrsquared/tree/minortweaks
 get_branch_activity("tidyverse/dplyr")
 #>                              branch most_recent_update
 #> 1                              main         2026-06-02

@@ -73,57 +73,59 @@ as in <code>"FRAMverse/framrsquared"</code>. Does not need to be an R package.</
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">get_branch_activity</span><span class="op">(</span><span class="st">"FRAMverse/framrsquared"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                            branch most_recent_update</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                    adding_tests         2026-06-09</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                             dev         2026-04-27</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                            main         2026-04-09</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4           cbedwards-dfw-patch-1         2026-04-08</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5             clean_up_formatting         2026-03-18</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6              remove_heatmap_cnr         2026-03-17</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                     heatmap_fix         2026-03-13</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8          add_soncc_calculations         2026-02-21</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9                 add/nr/checking         2025-11-24</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10           improve/modify/table         2025-10-31</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11                   nuke/fishery         2025-10-23</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12                  add/copy_runs         2025-10-13</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13                add/sensitivity         2025-10-07</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14                    add/taaetrs         2025-09-05</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15           add/stock_comp_graph         2025-05-14</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16              add/fate_function         2025-04-23</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17                   fix/run_info         2025-04-23</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18       add/mortality/comparison         2025-04-21</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19              refactor/compares         2025-04-21</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20 update/filter/species/handling         2025-04-21</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21               fix/compare/runs         2025-04-04</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22          add/stock/proportions         2025-03-19</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23           refactor/post_season         2025-01-02</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24           update/documentation         2024-11-01</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25                    minortweaks         2024-10-10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1                             dev         2026-09-22</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2                            main         2026-09-17</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3                   update_readme         2026-09-17</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4         feat/bk_fram_automation         2026-07-30</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5           cbedwards-dfw-patch-1         2026-04-08</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6             clean_up_formatting         2026-03-18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7              remove_heatmap_cnr         2026-03-17</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8                     heatmap_fix         2026-03-13</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9          add_soncc_calculations         2026-02-21</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10                add/nr/checking         2025-11-24</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11           improve/modify/table         2025-10-31</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12                   nuke/fishery         2025-10-23</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13                  add/copy_runs         2025-10-13</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14                add/sensitivity         2025-10-07</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15                    add/taaetrs         2025-09-05</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16           add/stock_comp_graph         2025-05-14</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17              add/fate_function         2025-04-23</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18                   fix/run_info         2025-04-23</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19       add/mortality/comparison         2025-04-21</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20              refactor/compares         2025-04-21</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21 update/filter/species/handling         2025-04-21</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22               fix/compare/runs         2025-04-04</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23          add/stock/proportions         2025-03-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24           refactor/post_season         2025-01-02</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25           update/documentation         2024-11-01</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26                    minortweaks         2024-10-10</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                                                             link</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                    https://github.com/FRAMverse/framrsquared/tree/adding_tests</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                             https://github.com/FRAMverse/framrsquared/tree/dev</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                            https://github.com/FRAMverse/framrsquared/tree/main</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4           https://github.com/FRAMverse/framrsquared/tree/cbedwards-dfw-patch-1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5             https://github.com/FRAMverse/framrsquared/tree/clean_up_formatting</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6              https://github.com/FRAMverse/framrsquared/tree/remove_heatmap_cnr</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                     https://github.com/FRAMverse/framrsquared/tree/heatmap_fix</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8          https://github.com/FRAMverse/framrsquared/tree/add_soncc_calculations</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9                 https://github.com/FRAMverse/framrsquared/tree/add/nr/checking</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10           https://github.com/FRAMverse/framrsquared/tree/improve/modify/table</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11                   https://github.com/FRAMverse/framrsquared/tree/nuke/fishery</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12                  https://github.com/FRAMverse/framrsquared/tree/add/copy_runs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13                https://github.com/FRAMverse/framrsquared/tree/add/sensitivity</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14                    https://github.com/FRAMverse/framrsquared/tree/add/taaetrs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15           https://github.com/FRAMverse/framrsquared/tree/add/stock_comp_graph</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16              https://github.com/FRAMverse/framrsquared/tree/add/fate_function</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17                   https://github.com/FRAMverse/framrsquared/tree/fix/run_info</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18       https://github.com/FRAMverse/framrsquared/tree/add/mortality/comparison</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19              https://github.com/FRAMverse/framrsquared/tree/refactor/compares</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20 https://github.com/FRAMverse/framrsquared/tree/update/filter/species/handling</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21               https://github.com/FRAMverse/framrsquared/tree/fix/compare/runs</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22          https://github.com/FRAMverse/framrsquared/tree/add/stock/proportions</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23           https://github.com/FRAMverse/framrsquared/tree/refactor/post_season</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24           https://github.com/FRAMverse/framrsquared/tree/update/documentation</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25                    https://github.com/FRAMverse/framrsquared/tree/minortweaks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1                             https://github.com/FRAMverse/framrsquared/tree/dev</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2                            https://github.com/FRAMverse/framrsquared/tree/main</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3                   https://github.com/FRAMverse/framrsquared/tree/update_readme</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4         https://github.com/FRAMverse/framrsquared/tree/feat/bk_fram_automation</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5           https://github.com/FRAMverse/framrsquared/tree/cbedwards-dfw-patch-1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6             https://github.com/FRAMverse/framrsquared/tree/clean_up_formatting</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7              https://github.com/FRAMverse/framrsquared/tree/remove_heatmap_cnr</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8                     https://github.com/FRAMverse/framrsquared/tree/heatmap_fix</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9          https://github.com/FRAMverse/framrsquared/tree/add_soncc_calculations</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10                https://github.com/FRAMverse/framrsquared/tree/add/nr/checking</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11           https://github.com/FRAMverse/framrsquared/tree/improve/modify/table</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12                   https://github.com/FRAMverse/framrsquared/tree/nuke/fishery</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13                  https://github.com/FRAMverse/framrsquared/tree/add/copy_runs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14                https://github.com/FRAMverse/framrsquared/tree/add/sensitivity</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15                    https://github.com/FRAMverse/framrsquared/tree/add/taaetrs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16           https://github.com/FRAMverse/framrsquared/tree/add/stock_comp_graph</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17              https://github.com/FRAMverse/framrsquared/tree/add/fate_function</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18                   https://github.com/FRAMverse/framrsquared/tree/fix/run_info</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19       https://github.com/FRAMverse/framrsquared/tree/add/mortality/comparison</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20              https://github.com/FRAMverse/framrsquared/tree/refactor/compares</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21 https://github.com/FRAMverse/framrsquared/tree/update/filter/species/handling</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22               https://github.com/FRAMverse/framrsquared/tree/fix/compare/runs</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23          https://github.com/FRAMverse/framrsquared/tree/add/stock/proportions</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24           https://github.com/FRAMverse/framrsquared/tree/refactor/post_season</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25           https://github.com/FRAMverse/framrsquared/tree/update/documentation</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26                    https://github.com/FRAMverse/framrsquared/tree/minortweaks</span>
 <span class="r-in"><span><span class="fu">get_branch_activity</span><span class="op">(</span><span class="st">"tidyverse/dplyr"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                              branch most_recent_update</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1                              main         2026-06-02</span>
